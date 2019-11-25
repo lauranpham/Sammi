@@ -1,0 +1,2 @@
+class DailyEmotionsController < ApplicationController
+end
