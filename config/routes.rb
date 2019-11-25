@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :class_memberships, only: [:create]
   end
 
-  resources :appoinments, only: [:show, :index, :destroy, :edit, :update]
+  resources :appointments, only: [:show, :index, :destroy, :edit, :update]
 
   resources :users, only: [:show] do
     resources :appointments, only: [:create]
