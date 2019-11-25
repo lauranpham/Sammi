@@ -38,24 +38,15 @@ ActiveRecord::Schema.define(version: 2019_11_25_153016) do
 
   create_table "daily_emotions", force: :cascade do |t|
     t.bigint "emotion_id"
-    t.bigint "student_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["emotion_id"], name: "index_daily_emotions_on_emotion_id"
-    t.index ["student_id"], name: "index_daily_emotions_on_student_id"
+    t.index ["user_id"], name: "index_daily_emotions_on_user_id"
   end
 
   create_table "emotions", force: :cascade do |t|
     t.integer "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "students", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -88,6 +79,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_153016) do
   add_foreign_key "class_memberships", "subjects"
   add_foreign_key "class_memberships", "users"
   add_foreign_key "daily_emotions", "emotions"
-  add_foreign_key "daily_emotions", "students"
+  add_foreign_key "daily_emotions", "users"
   add_foreign_key "subjects", "users"
 end
