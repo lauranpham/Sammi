@@ -1,1 +1,4 @@
-show.html.erb
+<h1><%= @subject.name %></h1>
+<% @subject.class_members.each do |member| %>
+<%= link_to "#{member.first_name} #{member.last_name}", user_path(member)%></p>
+<% end %>
