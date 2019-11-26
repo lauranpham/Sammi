@@ -4,8 +4,9 @@
     <% @subjects.each do |subject| %>
     <div class='col-6'>
       <%= link_to subject_path(subject) do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://d2mvzyuse3lwjc.cloudfront.net/www/resources/graph_gallery/image_functions/3DFunction_SeaShell.png); margin:10px">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path(subject.photo) %>')">
         <%= subject.name %>
+        <!-- https://d2mvzyuse3lwjc.cloudfront.net/www/resources/graph_gallery/image_functions/3DFunction_SeaShell.png -->
       </div>
     </div>
     <% end %>

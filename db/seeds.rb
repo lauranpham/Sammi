@@ -32,12 +32,12 @@ Emotion.create!(rating: 5)
 # 6 subjects for the 1 teacher
 puts 'Creating Subjects...'
 
-main_subject = Subject.create!(name: "9C Science", photo: "assets/images/science3.png", user: teacher_user )
-Subject.create!(name: "8A Science", photo: "assets/images/science1.png", user: teacher_user )
-Subject.create!(name: "11B Science", photo: "assets/images/science2.png", user: teacher_user )
-Subject.create!(name: "7A Math", photo: "assets/images/math1.png", user: teacher_user )
-Subject.create!(name: "8B Math", photo: "assets/images/math2.png", user: teacher_user )
-Subject.create!(name: "8C Science", photo: "assets/images/math3.png", user: teacher_user )
+main_subject = Subject.create!(name: "9C Science", photo: "science3.png", user: teacher_user )
+Subject.create!(name: "8A Science", photo: "science1.png", user: teacher_user )
+Subject.create!(name: "11B Science", photo: "science2.png", user: teacher_user )
+Subject.create!(name: "7A Math", photo: "math1.png", user: teacher_user )
+Subject.create!(name: "8B Math", photo: "math2.png", user: teacher_user )
+Subject.create!(name: "8C Science", photo: "math3.png", user: teacher_user )
 
 #Daily Emotions
 # 19 students with one emotion
