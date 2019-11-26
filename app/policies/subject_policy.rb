@@ -29,3 +29,5 @@ class SubjectPolicy < ApplicationPolicy
     new?
   end
 end
+# current_user => user
+# @restaurant => record

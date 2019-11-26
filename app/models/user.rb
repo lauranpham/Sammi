@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :teacher_appointments, through: :teacher_appointment_relationships, source: :teacher
   has_many :student_appointment_relationships, foreign_key: :student, class_name: 'Appointment'
   has_many :student_appointments, through: :student_appointment_relationships, source: :student
+  has_many :daily_emotions
   has_many :emotions, through: :daily_emotions
   has_many :subjects
   has_many :class_leaderships, through: :subjects, source: :class_membership

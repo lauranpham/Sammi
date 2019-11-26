@@ -1,0 +1,26 @@
+<h1>Your Classes</h1>
+
+
+
+<div class='container'>
+  <div class='row'>
+    <% @subjects.each do |subject| %>
+    <div class='col-6'>
+      <div class='card-category'>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<% @subjects.each do |subject| %>
+  <p><%= link_to "#{subject.name} (#{subject.room})", subject_path(subject)%></p>
+<% end %>
+
+  <%= simple_form_for [@subject] do |f| %>
+    <%= f.input :name  %>
+    <%= f.input :room  %>
+    <%= f.input :photo %>
+    <%= f.submit class: "btn btn-primary"%>
+  <% end %>
+
