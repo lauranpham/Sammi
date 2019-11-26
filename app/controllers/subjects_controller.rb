@@ -3,6 +3,9 @@ class SubjectsController < ApplicationController
     @subjects = Subject.all
   end
 
+  def show
+  end
+
   def new
   end
 
