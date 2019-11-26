@@ -1,21 +1,23 @@
-<h1>Your Classes</h1>
-
-
-
 <div class='container'>
+<h1>Your Classes</h1>
   <div class='row'>
     <% @subjects.each do |subject| %>
     <div class='col-6'>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(/assets/images/science1.png)">
+      <%= link_to subject_path(subject) do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://d2mvzyuse3lwjc.cloudfront.net/www/resources/graph_gallery/image_functions/3DFunction_SeaShell.png); margin:10px">
         <%= subject.name %>
       </div>
     </div>
     <% end %>
+    <% end %>
+    <div class='col-6'>
+      <%= link_to new_subject_path do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(); margin:10px">
+        Add New Classroom
+      </div>
+      <% end %>
+    </div>
   </div>
-</div>
-<% @subjects.each do |subject| %>
-  <p><%= link_to "#{subject.name} (#{subject.room})", subject_path(subject)%></p>
-<% end %>
 
   <%= simple_form_for [@subject] do |f| %>
     <%= f.input :name  %>
@@ -24,3 +26,4 @@
     <%= f.submit class: "btn btn-primary"%>
   <% end %>
 
+</div>
