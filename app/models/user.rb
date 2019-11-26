@@ -19,4 +19,9 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+  # used to check if child has already submitted an emotion
+  def has_submitted_today?
+    daily_emotions.where(date: Date.today).any?
+  end
 end

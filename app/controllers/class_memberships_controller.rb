@@ -1,4 +1,4 @@
-class ClassMembershipsController < ApplicationController
+class ClassMemberskhipsController < ApplicationController
   def create
     @classmembership = ClassMembership.new(class_membership_params)
     @classmembership.subject = Subject.find(params[:subject_id])
