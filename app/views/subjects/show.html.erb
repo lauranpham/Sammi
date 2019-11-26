@@ -1,4 +1,6 @@
 <h1><%= @subject.name %></h1>
+<%= link_to 'Delete Class', subject_path(@subject), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-primary' %>
 <% @subject.class_members.each do |member| %>
 <%= link_to "#{member.first_name} #{member.last_name}", user_path(member)%></p>
+<p><%= member.emotions.last.rating %></p>
 <% end %>

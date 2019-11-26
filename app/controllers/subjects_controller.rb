@@ -1,6 +1,7 @@
 class SubjectsController < ApplicationController
   def index
     @subjects = policy_scope(Subject)
+    @subject = Subject.new
   end
 
   def show
@@ -15,7 +16,7 @@ class SubjectsController < ApplicationController
   def create
     @subject = Subject.new(subject_params)
     @subject.user = current_user
-    @subject.pet = Pet.find(params[:pet_id])
+    authorize @subject
     if @subject.save
       redirect_to subjects_path
     else
@@ -30,5 +31,13 @@ class SubjectsController < ApplicationController
   end
 
   def destroy
+    @subject = Subject.find(params[:id])
+    @subject.destroy
+    authorize @subject
+    redirect_to subjects_path
+  end
+
+  def subject_params
+    params.require(:subject).permit(:name, :room, :photo)
   end
 end
