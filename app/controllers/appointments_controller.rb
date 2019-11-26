@@ -1,6 +1,5 @@
 class AppointmentsController < ApplicationController
   def index
-    @user = current_user if user.teacher
   end
 
   def show
