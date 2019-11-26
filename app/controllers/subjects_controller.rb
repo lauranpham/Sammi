@@ -1,12 +1,11 @@
 class SubjectsController < ApplicationController
   def index
-    @user = current_user
-    @subjects = policy_scope(Subject) if @user.teacher? # Subject.where(user: current_user)
+    @subjects = policy_scope(Subject)
   end
 
   def show
     @subject = Subject.find(params[:id])
-    authorize @subject, :show?
+    authorize @subject
   end
 
   def new
