@@ -43,12 +43,20 @@ Subject.create!(name: "8C Science", photo: "assets/images/math3.png", user: teac
 # 19 students with one emotion
 # 1 student with emotion history for 2 months
 puts 'Creating Daily Emotions...'
+student_emotion_array = []
 60.times do
-  DailyEmotion.create!(emotion: Emotion.all.sample, user: main_student)
+  student_emotion_array << DailyEmotion.create!(emotion: Emotion.all.sample, user: main_student)
+end
+
+count = 0
+student_emotion_array.each do |emotion|
+  emotion.date = Date.new(2019,12,6) - count
+  count += 1
+  emotion.save
 end
 
 students_array.each do |student|
-  DailyEmotion.create!(emotion: Emotion.all.sample, user: student)
+  DailyEmotion.create!(emotion: Emotion.all.sample, user: student, date: Date.new(2019,12,6))
 end
 
 #Appointments
