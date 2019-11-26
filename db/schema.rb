@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_122849) do
   end
 
   create_table "emotions", force: :cascade do |t|
-    t.integer "rating", default: 0, null: false
+    t.integer "rating", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
