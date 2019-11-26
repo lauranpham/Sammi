@@ -1,17 +1,13 @@
 class DailyEmotionsController < ApplicationController
-
-  def new
-    @user = current_user
-    @daily_emotion = DailyEmotion.new
-  end
-
   def create
     @daily_emotion = DailyEmotion.new(daily_emotion_params)
+    @daily_emotion.date = Date.today
     @daily_emotion.user = current_user
+    authorize @daily_emotion
     if @daily_emotion.save
-      redirect_to new_daily_emotion_path
+      redirect_to root_path
     else
-      render "subjects/show"
+      render "pages/home"
     end
   end
 
