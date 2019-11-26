@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def show
-    #student user show page?
+    authorize current_user
   end
 end
