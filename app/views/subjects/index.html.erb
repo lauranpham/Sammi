@@ -1,1 +1,4 @@
-index.html.erb
+<h1>Your Classes</h1>
+<% @subjects.each do |subject| %>
+  <p><%= link_to "#{subject.name} (#{subject.room})", subject_path(subject)%></p>
+<% end %>
