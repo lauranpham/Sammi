@@ -13,9 +13,6 @@ class User < ApplicationRecord
   has_many :class_memberships, through: :subjects
   has_many :students, through: :class_memberships, source: :student
 
-
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :teacher, presence: true
 end
-
