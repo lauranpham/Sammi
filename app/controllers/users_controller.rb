@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @student = User.find(params[:id])
     authorize current_user
   end
 end

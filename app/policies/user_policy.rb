@@ -1,11 +1,12 @@
 class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 
   def show?
-    record == user
+    record.user == user
+    # students teacher is the current user
   end
 end

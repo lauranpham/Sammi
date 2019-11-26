@@ -6,8 +6,8 @@
   <div class='row'>
     <% @subjects.each do |subject| %>
     <div class='col-6'>
-      <div class='card-category'>
-
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(/assets/images/science1.png)">
+        <%= subject.name %>
       </div>
     </div>
     <% end %>
