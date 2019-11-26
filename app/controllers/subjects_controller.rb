@@ -13,14 +13,6 @@ class SubjectsController < ApplicationController
   end
 
   def create
-    @subject = Subject.new(subject_params)
-    @subject.user = current_user
-    @subject.pet = Pet.find(params[:pet_id])
-    if @subject.save
-      redirect_to subjects_path
-    else
-      redirect_to pet_path(@subject.pet)
-    end
   end
 
   def edit
