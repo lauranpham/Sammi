@@ -20,4 +20,3 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :teacher, presence: true
 end
-
