@@ -1,4 +1,19 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="header">
+    <%= link_to 'Back', :back, class:"btn btn-primary" %>
+    <%= image_tag "https://images.unsplash.com/photo-1562925898-efd092faeff0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", class: 'avatar' %>
+    <h1><%= @student.first_name %></h1>
+  </div>
+  <div class="analytics">
+    <%= month_calendar do |date| %>
+      <%= date.day %>
+    <% end %>
+    <br>
+    <%= line_chart @dailynumber, label: "SOMETHING",xtitle: "Date", ytitle: "Emotions" %>
+  </div>
+  </div>
+</div>
 
-<p><%= @student.first_name %></p>
+
+
+
