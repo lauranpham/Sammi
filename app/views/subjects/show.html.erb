@@ -1,15 +1,27 @@
 <div class='container'>
-<h1><%= @subject.name %></h1>
-<%= link_to 'Delete Class', subject_path(@subject), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-primary' %>
   <div class='row'>
     <% @subject.class_members.each do |member| %>
-    <div class='col-6'>
-    <%= link_to user_path(member) do %>
-      <div class="card-product m-5">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos m-3">
-          <h2><%= member.first_name %> <%= member.last_name %></h2>
-          <h2 id="emotion"><%= member.emotions.last.rating %></h2>
+    <div class='col-4'>
+      <%= link_to user_path(member) do %>
+      <div class='card-container' style='margin:20px'>
+        <div class='row'>
+          <div class='col-8'>
+            <div class="card-product">
+              <div class='container'>
+                <div class='row'>
+                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large m-auto", alt: "avatar-large" %>
+                </div>
+                <div class='row'>
+                  <h2 style='margin:auto'><%= member.first_name %> <%= member.last_name %></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='col-4'>
+            <div class="card-product-infos">
+              <p style='margin:auto;' id="emotion"><%= member.emotions.last.rating %></p>
+            </div>
+          </div>
         </div>
       </div>
       <% end %>
