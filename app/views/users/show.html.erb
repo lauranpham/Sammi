@@ -11,6 +11,15 @@
     <br>
     <%= line_chart @dailynumber, label: "SOMETHING",xtitle: "Date", ytitle: "Emotions" %>
   </div>
+  <div>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Create an appointment
+    </button>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <%= render 'shared/appointments_form' %>
+      </div>
+    </div>
   </div>
 </div>
 
