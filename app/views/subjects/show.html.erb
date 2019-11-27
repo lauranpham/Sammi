@@ -1,29 +1,29 @@
 <div class='container'>
   <div class='row'>
     <% @subject.class_members.each do |member| %>
-    <div class='col-4'>
-      <%= link_to user_path(member) do %>
-      <div class='card-container' style='margin:20px'>
-        <div class='row'>
-          <div class='col-8'>
-            <div class="card-product">
-              <div class='container'>
-                <div class='row'>
-                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large m-auto", alt: "avatar-large" %>
-                </div>
-                <div class='row'>
-                  <h2 style='margin:auto'><%= member.first_name %> <%= member.last_name %></h2>
+      <div class='col-4'>
+        <%= link_to user_path(member) do %>
+        <div class='card-container' style='margin:20px'>
+          <div class='row'>
+            <div class='col-8'>
+              <div class="card-product">
+                <div class='container'>
+                  <div class='row'>
+                    <%= image_tag asset_path(member.photo), class: "avatar-large m-auto", alt: "avatar-large" %>
+                  </div>
+                  <div class='row'>
+                    <h2 style='margin:auto'><%= member.first_name %> <%= member.last_name %></h2>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class='col-4'>
-            <div class="card-product-infos">
-              <p style='margin:auto;' id="emotion"><%= member.emotions.last.rating %></p>
-            </div>
+            <div class='col-4'>
+              <div class="card-product-infos">
+                <p style='margin:auto;' id="emotion"><%= member.emotions.last.rating %></p>
+              </div>
+            </div>  
           </div>
         </div>
-      </div>
       <% end %>
     </div>
     <% end %>

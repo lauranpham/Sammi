@@ -11,13 +11,26 @@ User.destroy_all
 #Users
 # 1 teacher and 20 students
 puts 'Creating Users...'
-teacher_user = User.create!(first_name: 'Kate', last_name: 'Haywood', email: 'khaywood@teacher.com', password: '123123', teacher: true )
-main_student = User.create!(first_name: 'Jamie', last_name: 'Smith', email: 'jren@student.com', password: '123123', teacher: false )
+teacher_user = User.create!(first_name: 'Kate', last_name: 'Haywood', email: 'khaywood@teacher.com', password: '123123', teacher: true, photo: "teacher1" )
+main_student = User.create!(first_name: 'Jamie', last_name: 'Smith', email: 'jren@student.com', password: '123123', teacher: false, photo: "male1")
 
-students_array = []
-20.times do
- students_array << User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123123', teacher: false)
+female_students = []
+female_count = 1
+
+10.times do
+  female_students << User.create!(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123123', teacher: false, photo: "female" + female_count.to_s)
+  female_count += 1
 end
+
+male_students = []
+male_count = 2
+
+10.times do
+  male_students << User.create!(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123123', teacher: false, photo: "male" + male_count.to_s)
+  male_count += 1
+end
+
+students_array = male_students + female_students
 
 #Emotions
 # establish emotions rating system
@@ -44,10 +57,16 @@ Subject.create!(name: "8C Science", photo: "math3.png", user: teacher_user )
 # 1 student with emotion history for 2 months
 puts 'Creating Daily Emotions...'
 student_emotion_array = []
-emotion_range = Emotion.all.slice(0,3)
-60.times do
-  student_emotion_array << DailyEmotion.create!(emotion: emotion_range.sample, user: main_student)
+positive_emotion_range = Emotion.all.slice(2,3)
+30.times do 
+  student_emotion_array << DailyEmotion.create!(emotion: positive_emotion_range.sample, user: main_student)
 end
+
+low_emotion_range = Emotion.all.slice(0,3)
+30.times do
+  student_emotion_array << DailyEmotion.create!(emotion: low_emotion_range.sample, user: main_student)
+end
+
 
 count = 0
 student_emotion_array.each do |emotion|
