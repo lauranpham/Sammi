@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointments = Appointment.where("end_date < ?", Time.now)
-    @upcoming_appointments = appointment.where("end_date > ?", Time.now)
+    @appointments = policy_scope(Appointment).where("date < ?", Time.now)
+    @upcoming_appointments = Appointment.where("date > ?", Time.now)
     @user = current_user
   end
 

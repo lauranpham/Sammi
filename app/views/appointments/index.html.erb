@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 border-right">
+      <h2>Upcoming Appointments:</h2>
+      <div class="container">
+        <% @upcoming_appointments.each do |appointment| %>
+          <div class='row border-bottom'>
+            <div class=col-12>
+              <h2><%= appointment.student.first_name %> <%= appointment.student.last_name %></h2>
+              <p><%= appointment.date.strftime("%a, %d %B, %Y") %> </p>
+              <%= link_to 'Cancel appointment', appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-ghost' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <div class="col-6">
+      <h2>Past appointments:</h2>
+      <div class="container">
+        <% @upcoming_appointments.each do |appointment| %>
+          <div class='row border-bottom'>
+            <div class=col-12>
+              <h2><%= appointment.student.first_name %> <%= appointment.student.last_name %></h2>
+              <p><%= appointment.date.strftime("%a, %d %B, %Y") %> </p>
+              <%= link_to 'Hide appointment', appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-ghost' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
