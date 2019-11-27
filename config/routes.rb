@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/show'
   devise_for :users
-  root to: 'pages#home'
+  root to: 'subjects#index'
 
   resources :subjects do
     resources :class_memberships, only: [:create]

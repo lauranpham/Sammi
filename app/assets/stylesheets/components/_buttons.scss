@@ -1,0 +1,24 @@
+.btn-sammi {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #56A078;
+  transition: background 0.3s ease;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.btn-sammi:hover {
+  background: #448060;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-ghost{
+  background: white;
+  padding: 5px 24px;
+  color: gray;
+  border-radius: 4px;
+  border: 2px solid #e1dbdb;
+  font-weight: lighter;
+}

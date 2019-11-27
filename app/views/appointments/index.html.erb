@@ -1,5 +1,8 @@
 <div class="container">
   <div class="row">
+    <%= link_to 'Make another appointment', subjects_path, class: 'btn btn-primary'%>
+  </div>
+  <div class="row">
     <div class="col-6 border-right">
       <h2>Upcoming Appointments:</h2>
       <div class="container">
@@ -13,6 +16,7 @@
           </div>
         <% end %>
       </div>
+    </div>
     <div class="col-6">
       <h2>Past appointments:</h2>
       <div class="container">
