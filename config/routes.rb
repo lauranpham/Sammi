@@ -5,11 +5,12 @@ Rails.application.routes.draw do
 
   resources :subjects do
     resources :class_memberships, only: [:create]
+    resources :users, only: [:show]
   end
 
   resources :appointments, only: [:show, :index, :destroy, :edit, :update]
 
-  resources :users, only: [:show] do
+  resources :users do
     resources :appointments, only: [:create]
   end
 

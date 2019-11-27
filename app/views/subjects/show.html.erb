@@ -2,7 +2,7 @@
   <div class='row'>
     <% @subject.class_members.each do |member| %>
       <div class='col-4'>
-        <%= link_to user_path(member) do %>
+        <%= link_to subject_user_path(@subject, member) do %>
         <div class='card-container' style='margin:20px'>
           <div class='row'>
             <div class='col-8'>
@@ -21,7 +21,7 @@
               <div class="card-product-infos">
                 <p style='margin:auto;' id="emotion"><%= member.emotions.last.rating %></p>
               </div>
-            </div>  
+            </div>
           </div>
         </div>
       <% end %>

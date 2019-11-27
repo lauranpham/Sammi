@@ -1,7 +1,7 @@
 <div class="container">
   <div class="header">
-    <%= link_to 'Back', :back, class:"btn btn-primary" %>
-    <%= image_tag "https://images.unsplash.com/photo-1562925898-efd092faeff0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", class: 'avatar' %>
+    <%= link_to 'Back', subject_path(@subject), class:"btn btn-primary" %>
+    <%= image_tag asset_path(@student.photo), class: 'avatar' %>
     <h1><%= @student.first_name %></h1>
   </div>
   <div class="analytics">
@@ -10,6 +10,10 @@
     <% end %>
     <br>
     <%= line_chart @dailynumber, label: "SOMETHING",xtitle: "Date", ytitle: "Emotions" %>
+  </div>
+  <div class="details">
+    <h2>Year: 9</h2>
+    <h2>Current class: </h2>
   </div>
   <div>
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
