@@ -9,7 +9,11 @@
       <%= date.day %>
     <% end %>
     <br>
-    <%= line_chart [[@student.emotions.first.created_at, @student.emotions.first.rating], ["b", 2], ["c", 3], ["d", 1]], label: "SOMETHING",xtitle: "Date", ytitle: "Emotions" %>
+    <%= line_chart @dailynumber, label: "SOMETHING",xtitle: "Date", ytitle: "Emotions" %>
   </div>
   </div>
 </div>
+
+
+
+
