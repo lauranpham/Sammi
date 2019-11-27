@@ -1,4 +1,7 @@
 <div class='container'>
+  <div class="row">
+    <%= link_to 'Back', subjects_path, class: 'btn btn-primary'%>
+  </div>
   <div class='row'>
     <% @subject.class_members.each do |member| %>
       <div class='col-4'>
