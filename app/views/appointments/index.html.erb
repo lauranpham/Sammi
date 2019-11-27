@@ -20,7 +20,7 @@
     <div class="col-6">
       <h2>Past appointments:</h2>
       <div class="container">
-        <% @upcoming_appointments.each do |appointment| %>
+        <% @appointments.each do |appointment| %>
           <div class='row border-bottom'>
             <div class=col-12>
               <h2><%= appointment.student.first_name %> <%= appointment.student.last_name %></h2>
