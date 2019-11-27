@@ -1,19 +1,33 @@
 <div class="container">
-  <div class="header">
-    <%= link_to 'Back', subject_path(@subject), class:"btn btn-primary" %>
-    <%= image_tag asset_path(@student.photo), class: 'avatar' %>
-    <h1><%= @student.first_name %></h1>
-  </div>
-  <div class="analytics">
-    <%= month_calendar do |date| %>
-      <%= date.day %>
-    <% end %>
-    <br>
-    <%= line_chart @dailynumber, label: "Emotion",xtitle: "Date", ytitle: "Emotions", min: 0, max: 5%>
-  </div>
-  <div class="details">
-    <h2>Year: 9</h2>
-    <h2>Current class: </h2>
+  <div class="row">
+    <div class="col-12">
+      <div class="header">
+        <%= link_to 'Back', subject_path(@subject), class:"btn btn-primary" %>
+        <%= image_tag asset_path(@student.photo), class: 'avatar' %>
+        <h1><%= @student.first_name %></h1>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-8">
+      <div class="analytics">
+        <%= month_calendar do |date| %>
+          <%= date.day %>
+        <% end %>
+        <br>
+        <%= line_chart @dailynumber, label: "SOMETHING",xtitle: "Date", ytitle: "Emotions" %>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="details">
+        <h2>Year: 9</h2>
+        <h2>Current class: </h2>
+      </div>
+      <div class="form-group shadow-textarea">
+        <label for="exampleFormControlTextarea6">Notes</label>
+        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="8" placeholder="Write your notes..."></textarea>
+        <button class='btn btn-primary'>Save</button>
+      </div>
+    </div>
   </div>
   <div>
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -22,10 +36,8 @@
     <div class="collapse" id="collapseExample">
       <div class="card card-body">
         <%= render 'shared/appointments_form' %>
-
       </div>
     </div>
   </div>
 </div>
-
 
