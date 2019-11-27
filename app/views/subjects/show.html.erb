@@ -2,7 +2,6 @@
   <div class='row'>
     <% @subject.class_members.each do |member| %>
       <div class='col-4'>
-        <%= link_to subject_user_path(@subject, member) do %>
         <div class='card-container' style='margin:20px'>
           <div class='row'>
             <div class='col-8'>
@@ -14,6 +13,32 @@
                   <div class='row'>
                     <h2 style='margin:auto'><%= member.first_name %> <%= member.last_name %></h2>
                   </div>
+                   <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalStudent<%= member.id %>">
+                    More Info
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="modalStudent<%= member.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalCenterTitle"><%= member.first_name %> <%= member.last_name %></h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <%= line_chart member.daily_emotions.map { |emo| [emo.date, emo.emotion.number] }, label: "Emotion",xtitle: "Date", ytitle: "Emotions", min: 0, max: 5%>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -24,7 +49,6 @@
             </div>
           </div>
         </div>
-      <% end %>
     </div>
     <% end %>
   </div>

@@ -1,3 +1,25 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-8'>
+      <div class='container'>
+        <div class='row col-12'>
+          <div style='width:100%'><%= month_calendar do |date| %>
+            <%= date.day %>
+          <% end %>
+        </div>
+        <div class='row col-12'>
+          <%= line_chart @dailynumber, label: "Emotion",xtitle: "Date", ytitle: "Emotions", min: 0, max: 5%>
+        </div>
+      </div>
+    </div>
+    <div class='col-4'>
+      <div class='appointment-container'>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="container">
   <div class="header">
     <%= link_to 'Back', subject_path(@subject), class:"btn btn-primary" %>
@@ -26,7 +48,5 @@
     </div>
   </div>
 </div>
-
-
 
 
