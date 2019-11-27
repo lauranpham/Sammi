@@ -7,8 +7,6 @@
         <h1><%= @student.first_name %></h1>
       </div>
     </div>
-  </div>
-
   <div class="row">
     <div class="col-8">
       <div class="analytics">
@@ -28,6 +26,16 @@
         <label for="exampleFormControlTextarea6">Notes</label>
         <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="8" placeholder="Write your notes..."></textarea>
         <button class='btn btn-primary'>Save</button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Create an appointment
+    </button>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <%= render 'shared/appointments_form' %>
       </div>
     </div>
   </div>
