@@ -6,7 +6,7 @@
     <div class='col-6'>
     <%= link_to user_path(member) do %>
       <div class="card-product m-5">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <img src= '<%= asset_path(member.photo) %>' >
         <div class="card-product-infos m-3">
           <h2><%= member.first_name %> <%= member.last_name %></h2>
           <h2 id="emotion"><%= member.emotions.last.rating %></h2>
