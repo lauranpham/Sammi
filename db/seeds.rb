@@ -57,10 +57,16 @@ Subject.create!(name: "8C Science", photo: "math3.png", user: teacher_user )
 # 1 student with emotion history for 2 months
 puts 'Creating Daily Emotions...'
 student_emotion_array = []
-emotion_range = Emotion.all.slice(0,3)
-60.times do
-  student_emotion_array << DailyEmotion.create!(emotion: emotion_range.sample, user: main_student)
+positive_emotion_range = Emotion.all.slice(2,3)
+30.times do 
+  student_emotion_array << DailyEmotion.create!(emotion: positive_emotion_range.sample, user: main_student)
 end
+
+low_emotion_range = Emotion.all.slice(0,3)
+30.times do
+  student_emotion_array << DailyEmotion.create!(emotion: low_emotion_range.sample, user: main_student)
+end
+
 
 count = 0
 student_emotion_array.each do |emotion|
