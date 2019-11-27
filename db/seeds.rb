@@ -32,20 +32,21 @@ Emotion.create!(rating: 5)
 # 6 subjects for the 1 teacher
 puts 'Creating Subjects...'
 
-main_subject = Subject.create!(name: "9C Science", photo: "assets/images/science3.png", user: teacher_user )
-Subject.create!(name: "8A Science", photo: "assets/images/science1.png", user: teacher_user )
-Subject.create!(name: "11B Science", photo: "assets/images/science2.png", user: teacher_user )
-Subject.create!(name: "7A Math", photo: "assets/images/math1.png", user: teacher_user )
-Subject.create!(name: "8B Math", photo: "assets/images/math2.png", user: teacher_user )
-Subject.create!(name: "8C Science", photo: "assets/images/math3.png", user: teacher_user )
+main_subject = Subject.create!(name: "9C Science", photo: "science3.png", user: teacher_user )
+Subject.create!(name: "8A Science", photo: "science1.png", user: teacher_user )
+Subject.create!(name: "11B Science", photo: "science2.png", user: teacher_user )
+Subject.create!(name: "7A Math", photo: "math1.png", user: teacher_user )
+Subject.create!(name: "8B Math", photo: "math2.png", user: teacher_user )
+Subject.create!(name: "8C Science", photo: "math3.png", user: teacher_user )
 
 #Daily Emotions
 # 19 students with one emotion
 # 1 student with emotion history for 2 months
 puts 'Creating Daily Emotions...'
 student_emotion_array = []
+emotion_range = Emotion.all.slice(0,3)
 60.times do
-  student_emotion_array << DailyEmotion.create!(emotion: Emotion.all.sample, user: main_student)
+  student_emotion_array << DailyEmotion.create!(emotion: emotion_range.sample, user: main_student)
 end
 
 count = 0
