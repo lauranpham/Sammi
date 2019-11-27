@@ -10,7 +10,7 @@ gem 'rails', '5.2.3'
 gem 'redis'
 gem 'pundit'
 gem "simple_calendar", "~> 2.0"
-gem "chartkick", '~> 2.2.0'
+gem "chartkick", '~> 3.2.0'
 gem 'groupdate'
 
 gem 'autoprefixer-rails'
