@@ -2,6 +2,9 @@
   <div class="row">
     <%= link_to 'Back', subjects_path, class: 'btn btn-sammi'%>
   </div>
+  <div class="row">
+    <h1> <%= @subject.name %> </h1>
+  </div>
   <div class='row'>
     <% @subject.class_members.each do |member| %>
       <div class='col-4'>
