@@ -10,6 +10,6 @@ class CreateAppointments < ActiveRecord::Migration[5.2]
 
     add_index :appointments, :student_id
     add_index :appointments, :teacher_id
-    add_index :appointments, [:student_id, :teacher_id], unique: true
+    add_index :appointments, [:student_id, :teacher_id]
   end
 end
