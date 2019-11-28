@@ -9,7 +9,7 @@
           <div class='row'>
             <div class='col-8'>
               <div class="card-product">
-                <div class='container'>
+                <div class='container justify-content-center'>
                   <div class='row'>
                     <%= image_tag asset_path(member.photo), class: "avatar-large m-auto", alt: "avatar-large" %>
                   </div>
@@ -17,7 +17,7 @@
                     <h2 style='margin:auto'><%= member.first_name %> <%= member.last_name %></h2>
                   </div>
                    <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalStudent<%= member.id %>">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalStudent<%= member.id %>" style=>
                     More Info
                   </button>
 
