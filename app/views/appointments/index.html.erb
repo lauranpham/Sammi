@@ -5,28 +5,37 @@
   </div>
   <div class="row">
     <div class="col-6 border-right">
-      <h2 class='border-bottom w-50'>Upcoming Appointments:</h2>
+      <h2 class='border-bottom w-50'>Pending Appointments:</h2>
+
       <div class="container">
-        <% @upcoming_appointments.each do |appointment| %>
+        <% @pending_appointments.order(:date).each do |appointment| %>
           <div class='row border-bottom'>
             <div class='col-12 mt-3'>
               <h2><%= appointment.student.first_name %> <%= appointment.student.last_name %></h2>
               <p><%= appointment.date.strftime("%a, %d %B, %Y") %> </p>
-              <%= link_to 'Cancel appointment', appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-ghost mb-3' %>
+              <p><%= appointment.date.strftime("%I:%M %p") %> </p>
+              <% if current_user.teacher %>
+                <%= link_to 'Cancel appointment', appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-ghost mb-3' %>
+                <%= link_to 'Completed', appointment_path(appointment, appointment: { completed: true }), method: :patch, class: 'btn btn-sammi' %>
+              <% end %>
             </div>
           </div>
         <% end %>
       </div>
     </div>
     <div class="col-6">
-      <h2 class='border-bottom w-50'>Past appointments:</h2>
+      <h2 class='border-bottom w-50'>Completed Appointments:</h2>
       <div class="container">
-        <% @appointments.each do |appointment| %>
+        <% @completed_appointments.order(:date).each do |appointment| %>
           <div class='row border-bottom'>
             <div class='col-12 mt-3'>
               <h2><%= appointment.student.first_name %> <%= appointment.student.last_name %></h2>
               <p><%= appointment.date.strftime("%a, %d %B, %Y") %> </p>
-              <%= link_to 'Hide appointment', appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-ghost mb-3' %>
+              <p><%= appointment.date.strftime("%I:%M %p") %> </p>
+              <% if current_user.teacher %>
+                <%= link_to 'Hide appointment', appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-ghost mb-3' %>
+                 <%= link_to 'Reschedule', appointment_path(appointment, appointment: { completed: false }), method: :patch, class: 'btn btn-sammi' %>
+              <% end %>
             </div>
           </div>
         <% end %>

@@ -39,7 +39,7 @@
                         <div class="modal-body">
                           <div class='container'>
                             <div class='row'>
-                              <div class='col-8' style='border: 1px solid gray'><%= line_chart member.daily_emotions.map { |emo| [emo.date, emo.emotion.number] }, label: "Emotion",xtitle: "Date", ytitle: "Emotions", min: 0, max: 5, xmin: (member.daily_emotions.first.date - 7), xmax: member.daily_emotions.first.date, colors: "#91BDBA", points: false %></div>
+                              <div class='col-8' style='border: 1px solid gray'><%= line_chart member.daily_emotions.map { |emo| [emo.created_at, emo.emotion.number] }, label: "Emotion",xtitle: "Date", ytitle: "Emotions", min: 0, max: 5, xmin: (member.daily_emotions.first.created_at - 7), xmax: member.daily_emotions.first.created_at, colors: "#91BDBA", points: false %></div>
                               <div class='col-4'>
                                 <h2>Average Emotional Rating</h2>
                                 <p><%= member.daily_emotions.map {|emo| emo.emotion.number}.sum / member.daily_emotions.length %></p>
@@ -60,7 +60,7 @@
             </div>
             <div class='col-4'>
               <div class="card-product-infos">
-                <p style='margin:auto;' id="emotion"><%= member.emotions.last.rating %></p>
+                <p style='margin:auto;' id="emotion"><%= member.emotions.first.rating %></p>
               </div>
             </div>
           </div>

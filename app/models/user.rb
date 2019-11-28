@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :teacher_appointment_relationships, foreign_key: :teacher, class_name: 'Appointment'
+  has_many :teacher_appointment_relationships, foreign_key: :teacher_id, class_name: 'Appointment'
   has_many :teacher_appointments, through: :teacher_appointment_relationships, source: :teacher
-  has_many :student_appointment_relationships, foreign_key: :student, class_name: 'Appointment'
+  has_many :student_appointment_relationships, foreign_key: :student_id, class_name: 'Appointment'
   has_many :student_appointments, through: :student_appointment_relationships, source: :student
   has_many :daily_emotions
   has_many :emotions, through: :daily_emotions
@@ -22,6 +22,6 @@ class User < ApplicationRecord
 
   # used to check if child has already submitted an emotion
   def has_submitted_today?
-    daily_emotions.where(date: Date.today).any?
+    daily_emotions.where(date: DateTime.today).any?
   end
 end

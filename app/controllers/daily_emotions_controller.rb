@@ -1,7 +1,6 @@
 class DailyEmotionsController < ApplicationController
   def create
     @daily_emotion = DailyEmotion.new(daily_emotion_params)
-    @daily_emotion.date = Date.today
     @daily_emotion.user = current_user
     authorize @daily_emotion
     if @daily_emotion.save
