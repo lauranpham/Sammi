@@ -2,28 +2,34 @@
 <h1>Your Classes</h1>
   <div class='row'>
     <% @subjects.each do |subject| %>
-    <div class='col-4' style='margin-bottom: 30px'>
-      <%= link_to subject_path(subject) do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path(subject.photo) %>')">
-        <%= subject.name %>
+      <div class='col-4' style='margin-bottom: 30px'>
+        <%= link_to subject_path(subject) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path(subject.photo) %>')">
+            <%= subject.name %>
+          </div>
+        <% end %>
       </div>
-    </div>
     <% end %>
-    <% end %>
-    <div class='col-4' style='margin-bottom: 30px'>
-      <%= link_to new_subject_path do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
-        Add New Classroom
-      </div>
-    </div>
-      <% end %>
   </div>
-
-  <%= simple_form_for [@subject] do |f| %>
-    <%= f.input :name  %>
-    <%= f.input :room  %>
-    <%= f.input :photo %>
-    <%= f.submit class: "btn btn-primary"%>
-  <% end %>
-
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-sammi" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Add new classroom
+      </button>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <%= render 'shared/new_class' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!--     <div class='col-4' style='margin-bottom: 30px'>
+      <%= link_to new_subject_path do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
+          Add New Classroom
+        </div>
+      <% end %>
+    </div>
+  </div> -->

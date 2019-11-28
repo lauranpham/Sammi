@@ -1,6 +1,9 @@
 <div class='container'>
   <div class="row">
-    <%= link_to 'Back', subjects_path, class: 'btn btn-primary'%>
+    <%= link_to 'Back', subjects_path, class: 'btn btn-sammi'%>
+  </div>
+  <div class="row">
+    <h1> <%= @subject.name %> </h1>
   </div>
   <div class='row'>
     <% @subject.class_members.each do |member| %>
@@ -17,7 +20,8 @@
                     <h2 style='margin:auto'><%= member.first_name %> <%= member.last_name %></h2>
                   </div>
                    <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalStudent<%= member.id %>" style=>
+
+                  <button type="button" class="btn btn-sammi" data-toggle="modal" data-target="#modalStudent<%= member.id %>">
                     More Info
                   </button>
 
@@ -36,7 +40,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <%= link_to member.first_name, subject_user_path(@subject, member), class:"btn btn-primary"%>
+                          <%= link_to member.first_name, subject_user_path(@subject, member), class:"btn btn-sammi"%>
                         </div>
                       </div>
                     </div>
