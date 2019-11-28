@@ -1,70 +1,45 @@
 <div class='container'>
-  <div class="row">
+  <div class="row ml-3">
     <%= link_to 'Back', subjects_path, class: 'btn btn-sammi'%>
   </div>
-  <div class="row d-flex justify-content-between">
-    <h1> <%= @subject.name %> </h1>
-    <h1>Status: <%= (@subject.class_members.map {|student| student.daily_emotions.map{|emo| emo.emotion.number}.sum / student.daily_emotions.length}.sum / @subject.class_members.length).to_f %></h1>
+  <div class="row">
+    <div class='col-8'>
+      <div class='card-subject-title d-flex justify-content-around'>
+        <h1> <%= @subject.name %> </h1>
+      </div>
+    </div>
+    <div class='col-4'>
+      <div class='card-product d-flex justify-content-around'>
+        <h1>Status: <%= Emotion.all.find((@subject.class_members.map {|student| student.daily_emotions.map{|emo| emo.emotion.number}.sum / student.daily_emotions.length}.sum / @subject.class_members.length)).rating %></h1>
+      </div>
+    </div>
   </div>
   <div class='row'>
     <% @subject.class_members.each do |member| %>
-      <div class='col-4'>
+      <div class='col-12 col-md-6 col-lg-4'>
+      <%= link_to subject_user_path(@subject, member) do %>
         <div class='card-container' style='margin:20px'>
           <div class='row'>
-            <div class='col-8'>
+            <div class='col-6 pr-0 border-right'>
               <div class="card-product">
                 <div class='container justify-content-center'>
-                  <div class='row'>
+                  <div class='row mb-3'>
                     <%= image_tag asset_path(member.photo), class: "avatar-large m-auto", alt: "avatar-large" %>
                   </div>
                   <div class='row'>
                     <h2 style='margin:auto'><%= member.first_name %> <%= member.last_name %></h2>
                   </div>
-                   <!-- Button trigger modal -->
-
-                  <button type="button" class="btn btn-sammi" data-toggle="modal" data-target="#modalStudent<%= member.id %>">
-                    More Info
-                  </button>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="modalStudent<%= member.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalCenterTitle"><%= member.first_name %> <%= member.last_name %></h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <div class='container'>
-                            <div class='row'>
-                              <div class='col-8' style='border: 1px solid gray'><%= line_chart member.daily_emotions.map { |emo| [emo.created_at, emo.emotion.number] }, label: "Emotion",xtitle: "Date", ytitle: "Emotions", min: 0, max: 5, xmin: (member.daily_emotions.first.created_at - 7), xmax: member.daily_emotions.first.created_at, colors: "#91BDBA", points: false %></div>
-                              <div class='col-4'>
-                                <h2>Average Emotional Rating</h2>
-                                <p><%= member.daily_emotions.map {|emo| emo.emotion.number}.sum / member.daily_emotions.length %></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <%= link_to member.first_name, subject_user_path(@subject, member), class:"btn btn-sammi"%>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
                 </div>
               </div>
             </div>
-            <div class='col-4'>
-              <div class="card-product-infos">
-                <p style='margin:auto;' id="emotion"><%= member.emotions.first.rating %></p>
+            <div class='col-6 pl-0'>
+              <div class='emoji-block'>
+                <p id="emotion"><%= member.emotions.first.rating %></p>
               </div>
             </div>
           </div>
         </div>
+      <% end %>
     </div>
     <% end %>
   </div>
