@@ -1,8 +1,13 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointments = policy_scope(Appointment).where("date < ?", Time.now)
-    @upcoming_appointments = policy_scope(Appointment).where("date > ?", Time.now)
     @user = current_user
+    if @user.teacher
+      @appointments = @user.teacher_appointments.where("date < ?", Time.now)
+      @upcoming_appointments = @user.teacher_appointments.where("date > ?", Time.now)
+    else
+      @appointments = @user.student_appointments.where("date < ?", Time.now)
+      @upcoming_appointments = @user.student_appointments.where("date > ?", Time.now)
+    end
   end
 
   def show
@@ -12,11 +17,14 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.teacher = current_user
+    @appointment.student = User.find(params[:user_id])
+    raise
     if @appointment.save
       redirect_to appointments_path
     else
       render "users/show"
     end
+    authorize @appointment
   end
 
   def destroy
@@ -28,6 +36,6 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:comment, :date)
+    params.require(:appointment).permit(:comment, :date, :student)
   end
 end

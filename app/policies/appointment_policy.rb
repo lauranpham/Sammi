@@ -1,23 +1,23 @@
 class AppointmentPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
 
     def index?
-      true
+      create?
     end
 
     def show?
-      true
+      create?
     end
 
     def create?
-      true
+      record.user == user && user.teacher
     end
 
     def destroy?
-      true
+      create?
     end
   end
 end
