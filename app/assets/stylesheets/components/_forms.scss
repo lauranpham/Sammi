@@ -1,6 +1,7 @@
 .simple_form {
-  font-family: $body-font !important;
-  text-transform: uppercase;
+  font-family: $headers-font !important;
+  font-weight: bold;
   text-align: center;
   font-size: smaller;
+  border-radius: 10px !important;
 }

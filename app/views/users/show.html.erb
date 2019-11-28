@@ -1,50 +1,48 @@
-<div class="container">
+<!-- every page is already in a container from application.html.erb -->
+<div class="row nomarg">
+  <%= image_tag asset_path(@student.photo), class: 'avatar' %>
+  <h1 style="margin-left: 20px;"><%= @student.first_name %> <%= @student.last_name %></h1>
+</div>
 
+<div class="top">
   <div class="row nomarg">
-    <%= image_tag asset_path(@student.photo), class: 'avatar' %>
-    <h1 style="margin-left: 20px;"><%= @student.first_name %> <%= @student.last_name %></h1>
-  </div>
-
-  <div class="top">
-    <div class="row nomarg">
-      <div class="col-6 header">
-        <h2>How is <%= @student.first_name %> feeling today?</h2>
-        <p>Last check-in from Jamie was Thursday 8:45, October 1st.</p>
-        <button class="btn btn-sammi appointment" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          Create an appointment
-        </button>
-        <div class="collapse" id="collapseExample">
-          <div class="card card-body">
-            <%= render 'shared/appointments_form' %>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 emotion">
-        <%= @student.daily_emotions.first.emotion.rating %>
-      </div>
-    </div>
-  </div>
-
-  <div class="row nomarg">
-    <div class="col-4">
-      <div class="week">
-        <h3><%= @student.first_name %>'s week so far:</h3>
-        <div>
-          <h4>Monday</h4>
-          <p>sdfdsadf</p>
+    <div class="col-6 header">
+      <h2>How is <%= @student.first_name %> feeling today?</h2>
+      <p>Last check-in from Jamie was at <%= @student.daily_emotions.first.created_at.strftime("%I:%M %p on %a, %d %B, %Y") %> </p>
+      <button class="btn btn-sammi appointment" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Create an appointment
+      </button>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <%= render 'shared/appointments_form' %>
         </div>
       </div>
     </div>
 
-
-    <div class="col-8">
-
+    <div class="col-6 emotion">
+      <%= @student.daily_emotions.first.emotion.rating %>
     </div>
+  </div>
+</div>
+
+<div class="row nomarg">
+  <div class="col-4">
+    <div class="week">
+      <h3><%= @student.first_name %>'s week so far:</h3>
+      <div>
+        <h4>Monday</h4>
+        <p>sdfdsadf</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-8">
 
   </div>
 
 </div>
+
 
 
 <!--
