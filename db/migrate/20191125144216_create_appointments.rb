@@ -3,7 +3,7 @@ class CreateAppointments < ActiveRecord::Migration[5.2]
     create_table :appointments do |t|
       t.integer 'student_id', null: false
       t.integer 'teacher_id', null: false
-      t.date :date
+      t.datetime :date
       t.string :comment
       t.timestamps
     end
