@@ -15,14 +15,24 @@
 }
 
 .card-container{
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  // box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  background-color: white;
+  text-align:center;
 }
+
+.card-container:hover{
+  opacity:0.7;
+}
+
 .card-product {
   overflow: hidden;
   height: 150px;
   background: white;
   display: flex;
   align-items: center;
+  border-radius: 16px;
+  margin:10px;
 }
 
 
@@ -36,5 +46,11 @@
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
+}
+
+.emoji-block{
+  display: flex;
+  align-items: center;
+  padding: 25px;
 }
 
