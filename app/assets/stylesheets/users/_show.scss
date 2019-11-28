@@ -4,3 +4,59 @@
 .shadow-textarea textarea.form-control {
     padding-left: 0.8rem;
 }
+
+.content {
+  padding: 0px 50px 0px 50px;
+}
+.emotion {
+  font-size: 160px;
+  display: flex;
+  justify-content: center;
+}
+.header {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.appointment {
+  width: 250px;
+  background-color: #F4616E;
+}
+h2 {
+  color: #F56C79;
+}
+.top {
+  background-color: #F7E5E9;
+  padding: 0px 30px;
+  border-radius: 20px;
+}
+
+.my-date {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.day {
+  position: relative;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // border: 1px solid darkgray;
+  min-height: 10px !important;
+}
+.container {
+  background-color: #F4F5FA;
+}
+.week {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+}
+.nomarg {
+  margin: 20px 0px !important;
+}
+.col-4 {
+  padding: 0px !important;
+}
