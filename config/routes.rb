@@ -5,14 +5,16 @@ Rails.application.routes.draw do
 
   resources :subjects do
     resources :class_memberships, only: [:create]
-    resources :users, only: [:show]
+    resources :users, only: [:show] do
+      resources :appointments, only: [:create]
+    end
   end
 
   resources :appointments, only: [:show, :index, :destroy, :edit, :update]
 
-  resources :users do
-    resources :appointments, only: [:create]
-  end
+  # resources :users do
+  #   resources :appointments, only: [:create]
+  # end
 
   resources :class_memberships, only: [:destroy]
   resources :daily_emotions, only: [:create, :destroy]

@@ -1,17 +1,19 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointments = policy_scope(Appointment).where("date < ?", Time.now)
-    @upcoming_appointments = policy_scope(Appointment).where("date > ?", Time.now)
-    @user = current_user
-  end
-
-  def show
-    @appointment = appointment.find(params[:id])
+    if current_user.teacher
+      @completed_appointments = policy_scope(Appointment).where(teacher: current_user, completed: true)
+      @pending_appointments = policy_scope(Appointment).where(teacher: current_user, completed: false)
+    else
+      @completed_appointments = policy_scope(Appointment).where(student: current_user, completed: true)
+      @pending_appointments = policy_scope(Appointment).where(student: current_user, completed: false)
+    end
   end
 
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.teacher = current_user
+    @appointment.student = User.find(params[:user_id])
+    authorize @appointment
     if @appointment.save
       redirect_to appointments_path
     else
@@ -19,8 +21,23 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @appointment = Appointment.find(params[:id])
+    authorize @appointment
+    if @appointment.update(appointment_params)
+      redirect_to appointments_path
+    else
+      flash[:alert] = "oh no something went wrong"
+      redirect_to appointments_path
+    end
+  end
+
   def destroy
-    @appointment = appointment.find(params[:id])
+    @appointment = Appointment.find(params[:id])
+    authorize @appointment
     @appointment.destroy
     redirect_to appointments_path
   end
@@ -28,6 +45,6 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:comment, :date)
+    params.require(:appointment).permit(:comment, :date, :student, :completed)
   end
 end

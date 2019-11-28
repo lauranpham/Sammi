@@ -70,24 +70,26 @@ end
 
 count = 0
 student_emotion_array.each do |emotion|
-  emotion.date = Date.new(2019,12,6) - count
+  emotion.created_at = DateTime.new(2019,12,6) - count
   count += 1
   emotion.save
 end
 
 students_array.each do |student|
-  DailyEmotion.create!(emotion: Emotion.all.sample, user: student, date: Date.new(2019,12,6))
+  de = DailyEmotion.create!(emotion: Emotion.all.sample, user: student)
+  de.created_at = DateTime.new(2019,12,6)
+  de.save
 end
 
 #Appointments
 # 3 upcoming appointments, 2 past appointments
 puts 'Creating Appointments...'
 
-Appointment.create!(student: students_array[0], teacher: teacher_user, date: Date.new(2019,12,6))
-Appointment.create!(student: students_array[1], teacher: teacher_user, date: Date.new(2019,12,6))
-Appointment.create!(student: students_array[2], teacher: teacher_user, date: Date.new(2019,12,6))
-Appointment.create!(student: students_array[3], teacher: teacher_user, date: Date.new(2019,11,23))
-Appointment.create!(student: students_array[4], teacher: teacher_user, date: Date.new(2019,11,20))
+Appointment.create!(student: students_array[0], teacher: teacher_user, date: DateTime.new(2019,12,8,8,30))
+Appointment.create!(student: students_array[1], teacher: teacher_user, date: DateTime.new(2019,12,9,13))
+Appointment.create!(student: students_array[2], teacher: teacher_user, date: DateTime.new(2019,12,6,13))
+Appointment.create!(student: students_array[3], teacher: teacher_user, date: DateTime.new(2019,11,23,15,30), completed: true)
+Appointment.create!(student: students_array[4], teacher: teacher_user, date: DateTime.new(2019,11,20,8,30), completed: true)
 
 # Class Memberships
 # add all students to Year 9 Science subject

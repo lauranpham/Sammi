@@ -3,21 +3,21 @@ class AppointmentPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def index?
-      true
-    end
+  def show?
+    create?
+  end
 
-    def show?
-      true
-    end
+  def create?
+    user.teacher
+  end
 
-    def create?
-      true
-    end
+  def update?
+    create?
+  end
 
-    def destroy?
-      true
-    end
+  def destroy?
+    create?
   end
 end
