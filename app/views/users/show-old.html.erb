@@ -1,0 +1,46 @@
+<div class="container">
+  <%= link_to 'Back', subject_path(@subject), class:"btn btn-sammi" %>
+  <div class="row">
+    <div class="col-12">
+      <div class="header">
+        <%= image_tag asset_path(@student.photo), class: 'avatar' %>
+        <h1><%= @student.first_name %></h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-8">
+      <div class="analytics">
+        <%= month_calendar do |date| %>
+          <span class="my-date"><%= date.day %></span>
+          <%= @daily_emotions.where(date: date)&.first&.emotion&.rating %>
+        <% end %>
+        <br>
+        <%= line_chart @dailynumber, label: "Emotion",xtitle: "Date", ytitle: "Emotions" %>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="details">
+        <h2>Year: 9</h2>
+        <h2>Current class: </h2>
+      </div>
+      <div class="form-group shadow-textarea">
+        <label for="exampleFormControlTextarea6">Notes</label>
+        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="8" placeholder="Write your notes..."></textarea>
+        <button class='btn btn-sammi'>Save</button>
+      </div>
+      <div>
+        <button class="btn btn-sammi" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Create an appointment
+        </button>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <%= render 'shared/appointments_form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

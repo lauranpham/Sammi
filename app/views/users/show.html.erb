@@ -1,43 +1,63 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <div class="header">
-        <%= link_to 'Back', subject_path(@subject), class:"btn btn-sammi" %>
-        <%= image_tag asset_path(@student.photo), class: 'avatar' %>
-        <h1><%= @student.first_name %></h1>
+
+  <div class="row nomarg">
+    <%= image_tag asset_path(@student.photo), class: 'avatar' %>
+    <h1 style="margin-left: 20px;"><%= @student.first_name %> <%= @student.last_name %></h1>
+  </div>
+
+  <div class="top">
+    <div class="row nomarg">
+      <div class="col-6 header">
+        <h2>How is <%= @student.first_name %> feeling today?</h2>
+        <p>Last check-in from Jamie was Thursday 8:45, October 1st.</p>
+        <button class="btn btn-sammi appointment" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Create an appointment
+        </button>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <%= render 'shared/appointments_form' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 emotion">
+        <%= @student.daily_emotions.first.emotion.rating %>
       </div>
     </div>
-  <div class="row">
-    <div class="col-8">
-      <div class="analytics">
-        <%= month_calendar do |date| %>
-          <%= date.day %>
-        <% end %>
-        <br>
-        <%= line_chart @dailynumber, label: "SOMETHING",xtitle: "Date", ytitle: "Emotions" %>
-      </div>
-    </div>
+  </div>
+
+  <div class="row nomarg">
     <div class="col-4">
-      <div class="details">
-        <h2>Year: 9</h2>
-        <h2>Current class: </h2>
-      </div>
-      <div class="form-group shadow-textarea">
-        <label for="exampleFormControlTextarea6">Notes</label>
-        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="8" placeholder="Write your notes..."></textarea>
-        <button class='btn btn-sammi'>Save</button>
+      <div class="week">
+        <h3><%= @student.first_name %>'s week so far:</h3>
+        <div>
+          <h4>Monday</h4>
+          <p>sdfdsadf</p>
+        </div>
       </div>
     </div>
-  </div>
-  <div>
-    <button class="btn btn-sammi" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      Create an appointment
-    </button>
-    <div class="collapse" id="collapseExample">
-      <div class="card card-body">
-        <%= render 'shared/appointments_form' %>
-      </div>
+
+
+    <div class="col-8">
+
     </div>
+
   </div>
+
 </div>
 
+
+<!--
+<div class="left-info">
+  <h4 class="left-title">
+
+  </h4>
+  <div class="d-flex">
+    <div class="left">
+
+    </div>
+    <div class="right">
+
+    </div>
+  </div>
+</div> -->
