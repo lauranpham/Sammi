@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_11_28_104732) do
   create_table "appointments", force: :cascade do |t|
     t.integer "student_id", null: false
     t.integer "teacher_id", null: false
-    t.date "date"
+    t.datetime "date"
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2019_11_28_104732) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "date"
     t.index ["emotion_id"], name: "index_daily_emotions_on_emotion_id"
     t.index ["user_id"], name: "index_daily_emotions_on_user_id"
   end

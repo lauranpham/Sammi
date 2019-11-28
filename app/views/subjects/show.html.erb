@@ -35,7 +35,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <%= line_chart member.daily_emotions.map { |emo| [emo.date, emo.emotion.number] }, label: "Emotion",xtitle: "Date", ytitle: "Emotions", min: 0, max: 5, xmin: (member.daily_emotions.first.date - 7), xmax: member.daily_emotions.first.date  %>
+                          <%= line_chart member.daily_emotions.map { |emo| [emo.created_at, emo.emotion.number] }, label: "Emotion",xtitle: "Date", ytitle: "Emotions", min: 0, max: 5, xmin: (member.daily_emotions.first.created_at - 7), xmax: member.daily_emotions.first.created_at  %>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -22,6 +22,6 @@ class User < ApplicationRecord
 
   # used to check if child has already submitted an emotion
   def has_submitted_today?
-    daily_emotions.where(date: Date.today).any?
+    daily_emotions.where(date: DateTime.today).any?
   end
 end
