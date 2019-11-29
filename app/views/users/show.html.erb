@@ -1,50 +1,113 @@
-<div class="container">
+<!-- every page is already in a container from application.html.erb -->
+<div class="row nomarg">
+  <%= image_tag asset_path(@student.photo), class: 'avatar' %>
+  <h1 style="margin-left: 20px;"><%= @student.first_name %> <%= @student.last_name %></h1>
+</div>
 
+<div class="top">
   <div class="row nomarg">
-    <%= image_tag asset_path(@student.photo), class: 'avatar' %>
-    <h1 style="margin-left: 20px;"><%= @student.first_name %> <%= @student.last_name %></h1>
-  </div>
-
-  <div class="top">
-    <div class="row nomarg">
-      <div class="col-6 header">
-        <h2>How is <%= @student.first_name %> feeling today?</h2>
-        <p>Last check-in from Jamie was Thursday 8:45, October 1st.</p>
-        <button class="btn btn-sammi appointment" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          Create an appointment
-        </button>
-        <div class="collapse" id="collapseExample">
-          <div class="card card-body">
-            <%= render 'shared/appointments_form' %>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 emotion">
-        <%= @student.daily_emotions.first.emotion.rating %>
-      </div>
-    </div>
-  </div>
-
-  <div class="row nomarg">
-    <div class="col-4">
-      <div class="week">
-        <h3><%= @student.first_name %>'s week so far:</h3>
-        <div>
-          <h4>Monday</h4>
-          <p>sdfdsadf</p>
+    <div class="col-6 header">
+      <h2>How is <%= @student.first_name %> feeling today?</h2>
+      <p>Last check-in from Jamie was at <%= @student.daily_emotions.first.created_at.strftime("%I:%M %p on %a, %d %B, %Y") %> </p>
+      <button class="btn btn-sammi appointment" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Create an appointment
+      </button>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <%= render 'shared/appointments_form' %>
         </div>
       </div>
     </div>
 
-
-    <div class="col-8">
-
+    <div class="col-6 emotion">
+      <%= @student.daily_emotions.first.emotion.rating %>
     </div>
+  </div>
+</div>
 
+<div class="row nomarg analytics">
+  <div class="col-4 weekly-status">
+    <div class="week">
+      <h3><%= @student.first_name %>'s week so far:</h3>
+      <div class="collection">
+
+        <div class="time-title">
+          <h4>Mon</h4>
+          <p>8:45 am</p>
+        </div>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: <%= @student.emotions.first.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+      <div class="collection">
+        <div class="time-title">
+          <h4>Tues</h4>
+          <p>8:45 am</p>
+        </div>
+
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: <%= @student.emotions.second.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+      <div class="collection">
+        <div class="time-title">
+          <h4>Weds</h4>
+          <p>8:45 am</p>
+        </div>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: <%= @student.emotions.third.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+      <div class="collection">
+        <div class="time-title">
+          <h4>Thurs</h4>
+          <p>8:45 am</p>
+        </div>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: <%= @student.emotions.fourth.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+      <div class="collection">
+        <div class="time-title">
+          <h4>Fri</h4>
+          <p>8:45 am</p>
+        </div>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: <%= @student.emotions.fifth.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 monthly-status">
+    <div class="month">
+
+      <div>
+        <h3><%= @student.first_name %>'s month</h3>
+        <h3>November</h3>
+      </div>
+      <div>
+        <%= month_calendar do |date| %>
+          <span class="my-date"><%= date.day %></span>
+          <%= @daily_emotions.where(created_at: date)&.first&.emotion&.rating %>
+        <% end %>
+      </div>
+      <div>
+        <%= @student.emotions.first.rating %>
+        <%= @student.emotions.first.rating %>
+        <%= @student.emotions.last.rating %>
+        <%= @student.emotions.first.rating %>
+        <%= @student.emotions.last.rating %>
+      </div>
+    </div>
   </div>
 
 </div>
+
 
 
 <!--

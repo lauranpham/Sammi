@@ -1,15 +1,15 @@
 .btn-sammi {
   color: white;
+  background-color: #FF8C99;
   padding: 5px 24px;
   margin: 5px 0px;
   border-radius: 4px;
-  background: #FF8C99;
   transition: background 0.3s ease;
   display: inline-block;
 }
 
 .btn-sammi:hover {
-  background: #ff97a3;
+  background: #ff596c;
   color: white;
   text-decoration: none;
 }
@@ -18,8 +18,18 @@
   background: white;
   padding: 5px 24px;
   margin: 5px 0px;
-  color: gray;
+  color: #FF8C99;
+  border: 2px solid #FF8C99;
   border-radius: 4px;
-  border: 1px solid #e1dbdb;
+  font-weight: lighter;
+}
+
+.btn-ghost:hover {
+  background: white;
+  padding: 5px 24px;
+  margin: 5px 0px;
+  color: #ff596c;
+  border: 2px solid #ff596c;
+  border-radius: 4px;
   font-weight: lighter;
 }
