@@ -3,7 +3,7 @@
 <h1>Your Subjects</h1>
   <div class='row'>
     <% @subjects.each do |subject| %>
-      <div class='col-4' style='margin-bottom: 30px'>
+      <div class='col-4'>
         <%= link_to subject_path(subject) do %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path(subject.photo) %>')">
             <%= subject.name %>
