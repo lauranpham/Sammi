@@ -32,7 +32,7 @@
     </div>
     <div class="col-4">
       <% if current_user.teacher %>
-        <%= link_to 'Cancel appointment', appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-ghost' %>
+        <%= link_to 'Cancel', appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-ghost' %>
         <%= link_to 'Completed', appointment_path(appointment, appointment: { completed: true }), method: :patch, class: 'btn btn-sammi' %>
       <% end %>
     </div>
