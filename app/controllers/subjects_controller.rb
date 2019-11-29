@@ -6,6 +6,11 @@ class SubjectsController < ApplicationController
 
   def show
     @subject = Subject.find(params[:id])
+    emotion_map = @subject.class_members.map {|student| student.daily_emotions.last.emotion.number }
+    grouped_emotions = emotion_map.group_by{|r| r}
+    length = emotion_map.length
+    count_emos = grouped_emotions.map { |key, value| { key => value.length } }
+    @emo_prop = count_emos.map { |i| i.map { |key, value| { key => (value / length.to_f) * 100 } } }.map { |i| i.first }.reduce Hash.new, :merge
     authorize @subject
   end
 
