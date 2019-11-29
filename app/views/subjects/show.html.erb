@@ -1,42 +1,40 @@
   <div class="row ml-3">
     <%= link_to 'Back', subjects_path, class: 'btn btn-sammi'%>
   </div>
-  <div class="row">
-    <div class='col-8'>
+  <div class='container'>
+    <div class="row">
       <div class='card-subject-title d-flex justify-content-around'>
         <h1> <%= @subject.name %> </h1>
       </div>
     </div>
-    <div class='col-4'>
-      <div class='card-product d-flex justify-content-around'>
-        <h1>Status: <%= Emotion.all.find((@subject.class_members.map {|student| student.daily_emotions.map{|emo| emo.emotion.number}.sum / student.daily_emotions.length}.sum / @subject.class_members.length)).rating %></h1>
-      </div>
-    </div>
   </div>
-
+  <div class="student-index">
     <div class='row'>
       <div class='col-8'>
         <div class='row'>
           <% @subject.class_members.each do |member| %>
-            <div class='col-12 col-md-6 col-lg-4'>
+            <div class='col-12 col-md-6 col-lg-6'>
             <%= link_to subject_user_path(@subject, member) do %>
               <div class='card-container' style='margin:20px'>
                 <div class='row'>
-                  <div class='col-6 pr-0 border-right'>
+                  <div class='col-4 pr-0'>
                     <div class="card-product">
                       <div class='container justify-content-center'>
                         <div class='row mb-3'>
                           <%= image_tag asset_path(member.photo), class: "avatar-large m-auto", alt: "avatar-large" %>
                         </div>
-                        <div class='row'>
-                          <h2 style='margin:auto'><%= member.first_name %> <%= member.last_name %></h2>
-                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class='col-6 pl-0'>
-                    <div class='emoji-block'>
-                      <p id="emotion"><%= member.emotions.first.rating %></p>
+                  <div class='col-4 justify-content-center'>
+                    <h2 style='padding-top:25%; font-size:16px'><%= member.first_name %> <%= member.last_name %></h2>
+                    <p style='font-size:11px'>Last Updated Today at 08:1<%= rand(1..9) %></p>
+                  </div>
+                  <div class='col-4 pl-0'>
+                    <div class="card-product">
+
+                        <p id="emotion"><%= member.emotions.first.rating %></p>
+
                     </div>
                   </div>
                 </div>
@@ -49,13 +47,30 @@
       <div class='col-4'>
         <div class='stats-sticky'>
           <div class='container'>
-            <div class='row'>
+            <div class='row mb-3'>
               <h2>Class Stats</h2>
             </div>
+            <div class='row'>
+            <% Emotion.all.each do|emo| %>
+              <div class='col-3'>
+                <%= emo.rating %>
+              </div>
+              <div class='col-9'>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: <%= @emo_prop[emo.number] %>%;" aria-valuenow="<%= @emo_prop[emo.number] %>" aria-valuemin="0" aria-valuemax="100"><%= @emo_prop[emo.number].to_i %>%</div>
+                </div>
+              </div>
+            <% end %>
+            </div>
+
+              <div class='card-product d-flex justify-content-around'>
+                <h1>Status: <%= Emotion.all.find((@subject.class_members.map {|student| student.daily_emotions.map{|emo| emo.emotion.number}.sum / student.daily_emotions.length}.sum / @subject.class_members.length)).rating %></h1>
+              </div>
 
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 

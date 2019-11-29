@@ -12,14 +12,12 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   object-fit: cover;
-  margin:10px;
 }
 
 .card-container{
-  // box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  border-radius: 16px;
-  background-color: rgba(255, 140, 153, 0.2);
+  border-radius: 10px;
   text-align:center;
+  background-color:white;
 }
 
 .card-container:hover{
@@ -35,19 +33,25 @@
   border-radius: 16px;
   margin-top:10px;
   color: #FF626F;
+  margin-bottom: 20px;
+  width:100%;
+  text-align: center;
 }
 
 
 .card-product {
   overflow: hidden;
-  height: 150px;
+  height: 120px;
   display: flex;
   align-items: center;
   border-radius: 16px;
   margin:10px;
 }
 
-
+.card-product .avatar-large{
+  width: 70px;
+  height: 70px;
+}
 .card-product h2 {
   font-size: 20px;
   font-weight: bold;
@@ -66,5 +70,6 @@
   padding: 25px;
   background-color: white;
   border-radius: 0px 16px 16px 0px;
+  height:100%;
 }
 
