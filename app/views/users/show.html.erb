@@ -29,16 +29,63 @@
   <div class="col-4">
     <div class="week">
       <h3><%= @student.first_name %>'s week so far:</h3>
-      <div>
+      <div class="collection">
         <h4>Monday</h4>
-        <p>sdfdsadf</p>
+        <p>8:45 am</p>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: 50px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+      <div class="collection">
+        <h4>Tuesday</h4>
+        <p>8:45 am</p>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: 50px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+      <div class="collection">
+        <h4>Wednesday</h4>
+        <p>8:45 am</p>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: 50px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+      <div class="collection">
+        <h4>Thursday</h4>
+        <p>8:45 am</p>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: 50px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+      <div class="collection">
+        <h4>Friday</h4>
+        <p>8:45 am</p>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: 50px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
       </div>
     </div>
   </div>
 
 
   <div class="col-8">
+    <div>
+      <h3><%= @student.first_name %>'s month</h3>
+      <h3>November</h3>
+    </div>
 
+    <div>
+      <%= @student.emotions.first.rating %>
+      <%= @student.emotions.first.rating %>
+      <%= @student.emotions.last.rating %>
+      <%= @student.emotions.first.rating %>
+      <%= @student.emotions.last.rating %>
+    </div>
   </div>
 
 </div>
