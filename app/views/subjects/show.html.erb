@@ -1,46 +1,45 @@
-<div class='container'>
-  <div class="row ml-3">
-    <%= link_to 'Back', subjects_path, class: 'btn btn-sammi'%>
-  </div>
-  <div class="row">
-    <div class='col-8'>
-      <div class='card-subject-title d-flex justify-content-around'>
-        <h1> <%= @subject.name %> </h1>
-      </div>
-    </div>
-    <div class='col-4'>
-      <div class='card-product d-flex justify-content-around'>
-        <h1>Status: <%= Emotion.all.find((@subject.class_members.map {|student| student.daily_emotions.map{|emo| emo.emotion.number}.sum / student.daily_emotions.length}.sum / @subject.class_members.length)).rating %></h1>
-      </div>
+<!-- every page is already in a container from application.html.erb -->
+<div class="row ml-3">
+  <%= link_to 'Back', subjects_path, class: 'btn btn-sammi'%>
+</div>
+<div class="row">
+  <div class='col-8'>
+    <div class='card-subject-title d-flex justify-content-around'>
+      <h1> <%= @subject.name %> </h1>
     </div>
   </div>
-  <div class='row'>
-    <% @subject.class_members.each do |member| %>
-      <div class='col-12 col-md-6 col-lg-4'>
-      <%= link_to subject_user_path(@subject, member) do %>
-        <div class='card-container' style='margin:20px'>
-          <div class='row'>
-            <div class='col-6 pr-0 border-right'>
-              <div class="card-product">
-                <div class='container justify-content-center'>
-                  <div class='row mb-3'>
-                    <%= image_tag asset_path(member.photo), class: "avatar-large m-auto", alt: "avatar-large" %>
-                  </div>
-                  <div class='row'>
-                    <h2 style='margin:auto'><%= member.first_name %> <%= member.last_name %></h2>
-                  </div>
+  <div class='col-4'>
+    <div class='card-product d-flex justify-content-around'>
+      <h1>Status: <%= Emotion.all.find((@subject.class_members.map {|student| student.daily_emotions.map{|emo| emo.emotion.number}.sum / student.daily_emotions.length}.sum / @subject.class_members.length)).rating %></h1>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <% @subject.class_members.each do |member| %>
+    <div class='col-12 col-md-6 col-lg-4'>
+    <%= link_to subject_user_path(@subject, member) do %>
+      <div class='card-container' style='margin:20px'>
+        <div class='row'>
+          <div class='col-6 pr-0 border-right'>
+            <div class="card-product">
+              <div class='container justify-content-center'>
+                <div class='row mb-3'>
+                  <%= image_tag asset_path(member.photo), class: "avatar-large m-auto", alt: "avatar-large" %>
+                </div>
+                <div class='row'>
+                  <h2 style='margin:auto'><%= member.first_name %> <%= member.last_name %></h2>
                 </div>
               </div>
             </div>
-            <div class='col-6 pl-0'>
-              <div class='emoji-block'>
-                <p id="emotion"><%= member.emotions.first.rating %></p>
-              </div>
+          </div>
+          <div class='col-6 pl-0'>
+            <div class='emoji-block'>
+              <p id="emotion"><%= member.emotions.first.rating %></p>
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
     <% end %>
   </div>
+  <% end %>
 </div>
