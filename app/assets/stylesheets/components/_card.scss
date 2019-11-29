@@ -38,19 +38,31 @@
   text-align: center;
 }
 
-
+.card-status{
+   overflow: hidden;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  margin-top:10px;
+  color: #FF626F;
+  margin-bottom: 20px;
+  width:100%;
+  text-align: center;
+}
 .card-product {
   overflow: hidden;
   height: 120px;
   display: flex;
   align-items: center;
   border-radius: 16px;
-  margin:10px;
+  padding:20px;
 }
 
 .card-product .avatar-large{
   width: 70px;
   height: 70px;
+  object-fit: cover;
 }
 .card-product h2 {
   font-size: 20px;
