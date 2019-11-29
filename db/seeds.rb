@@ -11,14 +11,14 @@ User.destroy_all
 #Users
 # 1 teacher and 20 students
 puts 'Creating Users...'
-teacher_user = User.create!(first_name: 'Kate', last_name: 'Haywood', email: 'khaywood@teacher.com', password: '123123', teacher: true, photo: "teacher1" )
-main_student = User.create!(first_name: 'Jamie', last_name: 'Smith', email: 'jren@student.com', password: '123123', teacher: false, photo: "male1")
+teacher_user = User.create!(first_name: 'Kate', last_name: 'Haywood', email: 'khaywood@teacher.com', password: '123123', teacher: true, photo: "teacher1.jpeg" )
+main_student = User.create!(first_name: 'Jamie', last_name: 'Smith', email: 'jren@student.com', password: '123123', teacher: false, photo: "male1.jpeg")
 
 female_students = []
 female_count = 1
 
 10.times do
-  female_students << User.create!(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123123', teacher: false, photo: "female" + female_count.to_s)
+  female_students << User.create!(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123123', teacher: false, photo: "female" + female_count.to_s + ".jpeg")
   female_count += 1
 end
 
@@ -26,7 +26,7 @@ male_students = []
 male_count = 2
 
 10.times do
-  male_students << User.create!(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123123', teacher: false, photo: "male" + male_count.to_s)
+  male_students << User.create!(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123123', teacher: false, photo: "male" + male_count.to_s + ".jpeg")
   male_count += 1
 end
 
