@@ -1,26 +1,24 @@
-<div class='container'>
-
+<!-- every page is already in a container from application.html.erb -->
 <h1>Your Subjects</h1>
-  <div class='row'>
-    <% @subjects.each do |subject| %>
-      <div class='col-4' style='margin-bottom: 30px'>
-        <%= link_to subject_path(subject) do %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path(subject.photo) %>')">
-            <%= subject.name %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <button class="btn btn-sammi" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Add new subject
-      </button>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          <%= render 'shared/new_class' %>
+<div class='row'>
+  <% @subjects.each do |subject| %>
+    <div class='col-4' style='margin-bottom: 30px'>
+      <%= link_to subject_path(subject) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path(subject.photo) %>')">
+          <%= subject.name %>
         </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="col-6">
+    <button class="btn btn-sammi" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Add new subject
+    </button>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <%= render 'shared/new_class' %>
       </div>
     </div>
   </div>
