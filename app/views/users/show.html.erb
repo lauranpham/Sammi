@@ -87,8 +87,7 @@
     <div class="month">
 
       <div>
-        <h3><%= @student.first_name %>'s month</h3>
-        <h3>November</h3>
+        <h3><%= @student.first_name %>'s month:</h3>
       </div>
       <div class="calendar-heading">
         <div class="calendar">
@@ -100,13 +99,26 @@
           <% end %>
         </div>
       </div>
-      <div>
-        <%= @student.emotions.first.rating %>
-        <%= @student.emotions.first.rating %>
-        <%= @student.emotions.last.rating %>
-        <%= @student.emotions.first.rating %>
-        <%= @student.emotions.last.rating %>
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-2 emotion-label">
+            <%= Emotion.all.first.rating %>
+          </div>
+          <div class="col-2 emotion-label">
+            <%= Emotion.all.second.rating %>
+          </div>
+          <div class="col-2 emotion-label">
+            <%= Emotion.all.third.rating %>
+          </div>
+          <div class="col-2 emotion-label">
+            <%= Emotion.all.fourth.rating %>
+          </div>
+          <div class="col-2 emotion-label">
+            <%= Emotion.all.last.rating %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
 
