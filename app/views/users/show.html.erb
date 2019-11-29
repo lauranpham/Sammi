@@ -87,40 +87,38 @@
     <div class="month">
 
       <div>
-        <h3><%= @student.first_name %>'s month</h3>
-        <h3>November</h3>
+        <h3><%= @student.first_name %>'s month:</h3>
       </div>
-      <div>
-        <%= month_calendar do |date| %>
-          <span class="my-date"><%= date.day %></span>
-          <%= @daily_emotions.where(created_at: date)&.first&.emotion&.rating %>
-        <% end %>
+      <div class="calendar-heading">
+        <div class="calendar">
+          <%= month_calendar do |date| %>
+            <span class="my-date"><%= date.day %></span>
+            <p class="daily-emotion">
+              <%= @daily_emotions.where(created_at: date)&.first&.emotion&.rating %>
+            </p>
+          <% end %>
+        </div>
       </div>
-      <div>
-        <%= @student.emotions.first.rating %>
-        <%= @student.emotions.first.rating %>
-        <%= @student.emotions.last.rating %>
-        <%= @student.emotions.first.rating %>
-        <%= @student.emotions.last.rating %>
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-2 emotion-label">
+            <%= Emotion.all.first.rating %>
+          </div>
+          <div class="col-2 emotion-label">
+            <%= Emotion.all.second.rating %>
+          </div>
+          <div class="col-2 emotion-label">
+            <%= Emotion.all.third.rating %>
+          </div>
+          <div class="col-2 emotion-label">
+            <%= Emotion.all.fourth.rating %>
+          </div>
+          <div class="col-2 emotion-label">
+            <%= Emotion.all.last.rating %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
 </div>
 
-
-
-<!--
-<div class="left-info">
-  <h4 class="left-title">
-
-  </h4>
-  <div class="d-flex">
-    <div class="left">
-
-    </div>
-    <div class="right">
-
-    </div>
-  </div>
-</div> -->
