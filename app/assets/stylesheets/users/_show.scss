@@ -35,26 +35,72 @@ h2 {
 
 .my-date {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 5px;
+  font-size: smaller;
+  color: rgba(0,0,0,0.4);
 }
+
+.my-date-past {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  font-size: smaller;
+  color: rgba(0,0,0,0.4);
+}
+
 .day {
   position: relative;
   // display: flex;
   // justify-content: center;
   // align-items: center;
   // border: 1px solid darkgray;
-  min-height: 10px !important;
+  max-height: 20px !important;
 }
 
+.daily-emotion {
+  position: relative;
+  top: 12px;
+  right: 0px;
+  font-size: 1.5rem !important;
+}
+
+.calendar {
+  padding: 20px;
+  margin: 5px;
+}
 .week {
   background-color: white;
   border-radius: 15px;
   padding: 30px;
+  margin-right: 20px;
+  min-height: 500px;
 }
+
+.calendar-heading {
+  padding: 0px !important;
+  text-align: center;
+  font-weight: bold;
+}
+
+.calendar-heading a {
+  color: #6D6BB5;
+  font-weight: bold;
+}
+
+.td {
+  max-height: 20px;
+  border-right: 1px solid rgba(0,0,0,0.3) !important;
+}
+
+.calendar-title {
+  margin: 0px 10px;
+}
+
 .nomarg {
   margin: 20px 0px !important;
 }
+
 .weekly-status{
   padding: 0px !important;
 }
@@ -72,10 +118,7 @@ h2 {
   border-radius: 15px;
   padding: 30px;
 }
-.week {
-  margin-right: 20px;
-  min-height: 500px;
-}
+
 .bar {
   border-radius: 15px;
 }
