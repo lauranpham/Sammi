@@ -1,3 +1,5 @@
+@import "calendar";
+
 .shadow-textarea textarea.form-control::placeholder {
     font-weight: 300;
 }
@@ -33,6 +35,7 @@ h2 {
   border-radius: 20px;
 }
 
+
 .my-date {
   position: absolute;
   top: 0;
@@ -45,7 +48,7 @@ h2 {
   // align-items: center;
   // border: 1px solid darkgray;
   min-height: 10px !important;
-}
+
 
 .week {
   background-color: white;
@@ -57,12 +60,17 @@ h2 {
   flex-direction: column;
   justify-content: space-around;
 }
+  
 .nomarg {
   margin: 20px 0px !important;
 }
+
 .weekly-status{
   padding: 0px !important;
+  text-align: center;
+  font-weight: bold;
 }
+
 .collection {
   display: flex;
   display-wrap: wrap;

@@ -1,0 +1,55 @@
+.calendar {
+  padding: 10px;
+  margin: 5px;
+}
+.my-date {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  font-size: smaller;
+  color: rgba(0,0,0,0.4);
+}
+
+.day {
+  position: relative;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // border: 1px solid darkgray;
+  max-height: 15px !important;
+}
+
+.daily-emotion {
+  position: relative;
+  top: 12px;
+  right: 0px;
+  font-size: 1.5rem !important;
+}
+
+.calendar-heading {
+  padding: 0px !important;
+  text-align: center;
+  font-weight: bold;
+}
+
+.calendar-title {
+  margin: 0px 10px;
+}
+
+.calendar-heading a {
+  color: #6D6BB5;
+  font-weight: bold;
+}
+
+.td {
+  max-height: 20px;
+  border-right: 1px solid rgba(0,0,0,0.3) !important;
+}
+
+.emotion-label {
+  text-decoration: underline solid #6D6BB5;
+  font-weight: bold;
+  text-align: center;
+}
+
+
