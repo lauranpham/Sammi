@@ -105,9 +105,49 @@
       </div>
     </div>
   </div>
-
 </div>
 
+<div class="my-wrapper">
+
+  <div class="input-text">
+
+    <div class="avatar-container">
+      <%= image_tag current_user.photo, class: "avatar" %>
+    </div>
+
+    <div class="text">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis adipisci, hic molestiae
+      </p>
+    </div>
+
+    <p id="my-custom-date"><%= Date.today %></p>
+
+  </div>
+
+
+  <div class="my-submit-field">
+    <input class="something" type="text" value="  Type something...">
+    <!-- <div class="my-input">
+      Type something
+    </div> -->
+    <div class="mybtn">
+      <div class="btn btn-primary">Submit</div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="row nomarg notes">
+  <div class="input">
+    <div class="text">
+      <%= image_tag current_user.photo, class: "avatar" %>
+      <p>Lorem ipsum blah blah blaaaaah!</p>
+    </div>
+    <div class="chat-date">
+    </div>
+  </div>
+</div>
+ -->
 
 
 <!--
