@@ -25,20 +25,86 @@
   </div>
 </div>
 
-<div class="row nomarg">
-  <div class="col-4">
+<div class="row nomarg analytics">
+  <div class="col-4 weekly-status">
     <div class="week">
       <h3><%= @student.first_name %>'s week so far:</h3>
-      <div>
-        <h4>Monday</h4>
-        <p>sdfdsadf</p>
+      <div class="collection">
+        <div class="time-title">
+          <h4>Mon</h4>
+          <p>8:45 am</p>
+        </div>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: <%= @student.emotions.first.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+      <div class="collection">
+        <div class="time-title">
+          <h4>Tues</h4>
+          <p>8:45 am</p>
+        </div>
+
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: <%= @student.emotions.second.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+      <div class="collection">
+        <div class="time-title">
+          <h4>Weds</h4>
+          <p>8:45 am</p>
+        </div>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: <%= @student.emotions.third.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+      <div class="collection">
+        <div class="time-title">
+          <h4>Thurs</h4>
+          <p>8:45 am</p>
+        </div>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: <%= @student.emotions.fourth.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
+      </div>
+      <div class="collection">
+        <div class="time-title">
+          <h4>Fri</h4>
+          <p>8:45 am</p>
+        </div>
+        <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+          <div class="bar2" style="width: <%= @student.emotions.fifth.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+        </div>
+        <%= @student.emotions.first.rating %>
       </div>
     </div>
   </div>
 
 
-  <div class="col-8">
+  <div class="col-8 monthly-status">
+    <div class="month">
 
+      <div>
+        <h3><%= @student.first_name %>'s month</h3>
+        <h3>November</h3>
+      </div>
+      <div>
+        <%= month_calendar do |date| %>
+          <span class="my-date"><%= date.day %></span>
+          <%= @daily_emotions.where(created_at: date)&.first&.emotion&.rating %>
+        <% end %>
+      </div>
+      <div>
+        <%= @student.emotions.first.rating %>
+        <%= @student.emotions.first.rating %>
+        <%= @student.emotions.last.rating %>
+        <%= @student.emotions.first.rating %>
+        <%= @student.emotions.last.rating %>
+      </div>
+    </div>
   </div>
 
 </div>

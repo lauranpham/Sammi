@@ -55,6 +55,43 @@ h2 {
 .nomarg {
   margin: 20px 0px !important;
 }
-.col-4 {
+.weekly-status{
   padding: 0px !important;
+}
+.collection {
+  display: flex;
+  display-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+.monthly-status {
+  padding: 0px !important;
+}
+.month {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+}
+.week {
+  margin-right: 20px;
+  min-height: 500px;
+}
+.bar {
+  border-radius: 15px;
+}
+.bar2 {
+  border-radius: 15px;
+}
+.time-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+  h4 {
+    font-size: 15px;
+  }
+  p {
+    font-size: 12px;
+    margin-bottom: 0.5rem;
+  }
 }
