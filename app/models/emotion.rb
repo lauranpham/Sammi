@@ -24,11 +24,11 @@ class Emotion < ApplicationRecord
   def color
     num = self.number
     case num
-    when 1 then '#A33141'
-    when 2 then '#F08853'
-    when 3 then '#EEDD9D'
-    when 4 then '#6B92AB'
-    when 5 then '#D0FBDF'
+    when 1 then '#B49CB7'
+    when 2 then '#C6A9CC'
+    when 3 then '#DFD0EF'
+    when 4 then '#CAC7E2'
+    when 5 then '#E1E8F7'
     end
   end
 
