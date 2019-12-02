@@ -46,14 +46,14 @@
                       <div class='col-6'>
                         <% if member.daily_emotions.count > 3 %>
                           <% if member.daily_emotions.first.emotion.number > member.daily_emotions.second.emotion.number %>
-                            <i class="fas fa-sort-up"></i>
+                            <i class="fas fa-sort-up fa-lg"></i>
                             <% elsif member.daily_emotions.first.emotion.number < member.daily_emotions.second.emotion.number %>
-                            <i class="fas fa-sort-down"></i>
+                            <i class="fas fa-sort-down fa-lg"></i>
                             <% else %>
-                            <i class="fas fa-minus"></i>
+                            <i class="fas fa-minus fa-lg"></i>
                           <% end %>
                         <% else %>
-                          <i class="<%= ["fas fa-minus","fas fa-sort-up","fas fa-sort-down"].sample %>"></i>
+                          <i class="<%= ["fas fa-minus fa-sm","fas fa-sort-up fa-lg","fas fa-sort-down fa-lg"].sample %>" ></i>
                         <% end %>
                       </div>
                     </div>
@@ -75,7 +75,7 @@
             <div class='row'>
             <% Emotion.all.each do|emo| %>
               <div class='col-2'>
-                <p><%= emo.rating %>
+                <h2><%= emo.rating %></h2>
               </div>
               <div class='col-10'>
                 <div class="bar" style="width: <%= @emo_prop[emo.number] * 2 %>%; height: 15px; background-color: <%= emo.color %>;">
