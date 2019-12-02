@@ -37,7 +37,7 @@
             <p>8:45 am</p>
           </div>
           <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
-            <div class="bar2" style="width: <%= @student.daily_emotions.fifth.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+            <div class="bar2" style="width: <%= @student.daily_emotions.fifth.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
           </div>
           <%= @student.daily_emotions.fifth.emotion.rating %>
         </div>
@@ -48,7 +48,7 @@
           </div>
 
           <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
-            <div class="bar2" style="width: <%= @student.daily_emotions.fourth.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+            <div class="bar2" style="width: <%= @student.daily_emotions.fourth.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
           </div>
           <%= @student.daily_emotions.fourth.emotion.rating %>
         </div>
@@ -58,7 +58,7 @@
             <p>8:45 am</p>
           </div>
           <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
-            <div class="bar2" style="width: <%= @student.daily_emotions.third.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+            <div class="bar2" style="width: <%= @student.daily_emotions.third.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
           </div>
           <%= @student.daily_emotions.third.emotion.rating %>
         </div>
@@ -68,7 +68,7 @@
             <p>8:45 am</p>
           </div>
           <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
-            <div class="bar2" style="width: <%= @student.daily_emotions.second.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+            <div class="bar2" style="width: <%= @student.daily_emotions.second.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
           </div>
           <%= @student.daily_emotions.second.emotion.rating %>
         </div>
@@ -78,7 +78,7 @@
             <p>8:45 am</p>
           </div>
           <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
-            <div class="bar2" style="width: <%= @student.daily_emotions.first.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: blue;"></div>
+            <div class="bar2" style="width: <%= @student.daily_emotions.first.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
           </div>
           <%= @student.daily_emotions.first.emotion.rating %>
         </div>
@@ -94,7 +94,7 @@
           <div class="calendar">
             <%= month_calendar do |date| %>
               <span class="my-date"><%= date.day %></span>
-              <p class="daily-emotion">
+              <p class="daily-emotion" >
                 <%= @daily_emotions.where(created_at: date)&.first&.emotion&.rating %>
               </p>
             <% end %>
@@ -102,20 +102,35 @@
         </div>
         <div class="container">
           <div class="row text-center">
-            <div class="col-2 emotion-label">
-              <%= Emotion.all.first.rating %>
+            <div class="col-2" style="font-size: 20px">
+              <div class="emotion-label-cont">
+                <span><%= Emotion.all.first.rating %></span>
+                <p class="emotion-label" style="background-color: #F25855 "></p>
+              </div>
             </div>
-            <div class="col-2 emotion-label">
-              <%= Emotion.all.second.rating %>
+            <div class="col-2" style="font-size: 20px">
+              <div class="emotion-label-cont">
+                <%= Emotion.all.second.rating %>
+                <div class="emotion-label" style="background-color: #F5785A "></div>
+              </div>
             </div>
-            <div class="col-2 emotion-label">
-              <%= Emotion.all.third.rating %>
+            <div class="col-2" style="font-size: 20px">
+              <div class="emotion-label-cont">
+                <%= Emotion.all.third.rating %>
+                <div class="emotion-label" style="background-color: #F7955F "></div>
+              </div>
             </div>
-            <div class="col-2 emotion-label">
-              <%= Emotion.all.fourth.rating %>
+            <div class="col-2" style="font-size: 20px">
+              <div class="emotion-label-cont">
+                <%= Emotion.all.fourth.rating %>
+                <div class="emotion-label" style="background-color: #F7B363"></div>
+              </div>
             </div>
-            <div class="col-2 emotion-label">
-              <%= Emotion.all.last.rating %>
+            <div class="col-2" style="font-size: 20px">
+              <div class="emotion-label-cont">
+                <%= Emotion.all.last.rating %>
+                <div class="emotion-label" style="background-color: #F7D167 "></div>
+              </div>
             </div>
           </div>
         </div>

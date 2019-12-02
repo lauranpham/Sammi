@@ -1,22 +1,36 @@
 .calendar {
-  padding: 10px;
+  padding: 5px;
   margin: 5px;
+  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
 }
 .my-date {
   position: absolute;
-  top: 0px;
-  left: 5px;
+  top: 2px !important;
+  left: 5px !important;
   font-size: smaller;
   color: rgba(0,0,0,0.4);
 }
 
 .day {
   position: relative;
+  padding: 2px;
   // display: flex;
   // justify-content: center;
   // align-items: center;
   // border: 1px solid darkgray;
-  max-height: 15px !important;
+  height: 80px !important;
+  border: 1px solid rgba(250,250,250,0.3) !important;
+}
+
+.future {
+  position: relative;
+  padding: 2px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // border: 1px solid darkgray;
+  max-height: 20px !important;
+  border: 1px solid rgba(250,250,250,0.3) !important;
 }
 
 .daily-emotion {
@@ -41,15 +55,21 @@
   font-weight: bold;
 }
 
-.td {
+.calendar.td_classes_for {
+  padding: 2px;
   max-height: 20px;
-  border-right: 1px solid rgba(0,0,0,0.3) !important;
 }
 
 .emotion-label {
-  text-decoration: underline solid #6D6BB5;
-  font-weight: bold;
-  text-align: center;
+  height: 5px;
+  width: 50%;
+  border-radius: 5px;
 }
 
+.emotion-label-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
