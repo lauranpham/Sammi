@@ -20,6 +20,12 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  has_many :teacher_note_relationships, foreign_key: :teacher_id, class_name: 'Note'
+  has_many :student_note_relationships, foreign_key: :student_id, class_name: 'Note'
+
+  scope :teachers, -> { where(teacher: true) }
+  scope :students, -> { where(teacher: false) }
+
   # used to check if child has already submitted an emotion
   def has_submitted_today?
     daily_emotions.where(date: DateTime.today).any?
