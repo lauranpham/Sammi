@@ -13,6 +13,7 @@ User.destroy_all
 puts 'Creating Users...'
 teacher_user = User.create!(first_name: 'Kate', last_name: 'Haywood', email: 'khaywood@teacher.com', password: '123123', teacher: true, photo: "teacher1.jpeg" )
 teacher_user2 = User.create!(first_name: 'Miles', last_name: 'Hoffman', email: 'mhoffman@teacher.com', password: '123123', teacher: true, photo: "teacher2.jpeg" )
+teacher_user3 = User.create!(first_name: 'Ally', last_name: 'Perry', email: 'aperry@teacher.com', password: '123123', teacher: true, photo: "teacher3.jpeg" )
 
 main_student = User.create!(first_name: 'Jamie', last_name: 'Smith', email: 'jsmith@student.com', password: '123123', teacher: false, photo: "male1.jpeg")
 
@@ -104,6 +105,13 @@ ClassMembership.create!(user: main_student, subject: main_subject)
 
 # Notes
 puts 'Creating Teacher Notes'
+note1 = Note.new(student: main_student, teacher: teacher_user2, content: "Jamie had some family issues this week. Expect his mood to be lower than usual.")
+note2 = Note.new(student: main_student, teacher: teacher_user3, content: "Jamie was disengaged and refused to complete work in English class today. I have called home and his parents are also concerned.")
 
+note1.created_at = DateTime.new(2019,12,4)
+note2.created_at = DateTime.new(2019,12,5)
+
+note1.save
+note2.save
 
 puts 'Finished!'
