@@ -122,7 +122,24 @@
   </div>
 </div>
 
-<div class="my-wrapper">
+
+<div class="chat-wrapper">
+  <div class="chat-note">
+      <%= image_tag current_user.photo, class: "avatar" %>
+      <p class="chat-note-message">Lorem ipsum dolor sit amet, consectetur adipisicing cumque culpa facilis veritatis. Sapiente tempora, voluptatem pariatur impedit suscipit placeat officiis sint?</p>
+      <div class="chat-note-time"><%= Date.today %></div>
+  </div>
+  <form class="form-inline" action="/action_page.php" id="userform">
+   <!--  Name: <%= @user.first_name %> -->
+   <div class="form-group">
+      <input class="form-control" type="" name="comment" form="userform" placeholder="Type here..."></input>
+      <input class="btn btn-sammi notes-button" type="submit">
+   </div>
+  </form>
+
+</div>
+
+<!-- <div class="my-wrapper">
 
   <div class="input-text">
 
@@ -142,40 +159,10 @@
 
 
   <div class="my-submit-field">
-    <input class="something" type="text" value="  Type something...">
-    <!-- <div class="my-input">
-      Type something
-    </div> -->
+    <input class="something" type="text" placeholder="Type something...">
     <div class="mybtn">
       <div class="btn btn-primary">Submit</div>
     </div>
   </div>
 </div>
-
-<!-- <div class="row nomarg notes">
-  <div class="input">
-    <div class="text">
-      <%= image_tag current_user.photo, class: "avatar" %>
-      <p>Lorem ipsum blah blah blaaaaah!</p>
-    </div>
-    <div class="chat-date">
-    </div>
-  </div>
-</div>
  -->
-
-
-<!--
-<div class="left-info">
-  <h4 class="left-title">
-
-  </h4>
-  <div class="d-flex">
-    <div class="left">
-
-    </div>
-    <div class="right">
-
-    </div>
-  </div>
-</div> -->
