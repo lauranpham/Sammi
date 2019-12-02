@@ -31,8 +31,6 @@
       <div class="week">
         <h3><%= @student.first_name %>'s week so far:</h3>
 
-
-
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -117,7 +115,7 @@
           <div class="calendar">
             <%= month_calendar do |date| %>
               <span class="my-date"><%= date.day %></span>
-              <p class="daily-emotion">
+              <p class="daily-emotion" >
                 <%= @daily_emotions.where(created_at: date)&.first&.emotion&.rating %>
               </p>
             <% end %>
@@ -125,20 +123,35 @@
         </div>
         <div class="container">
           <div class="row text-center">
-            <div class="col-2 emotion-label">
-              <%= Emotion.all.first.rating %>
+            <div class="col-2" style="font-size: 20px">
+              <div class="emotion-label-cont">
+                <span><%= Emotion.all.first.rating %></span>
+                <p class="emotion-label" style="background-color: #F25855 "></p>
+              </div>
             </div>
-            <div class="col-2 emotion-label">
-              <%= Emotion.all.second.rating %>
+            <div class="col-2" style="font-size: 20px">
+              <div class="emotion-label-cont">
+                <%= Emotion.all.second.rating %>
+                <div class="emotion-label" style="background-color: #F5785A "></div>
+              </div>
             </div>
-            <div class="col-2 emotion-label">
-              <%= Emotion.all.third.rating %>
+            <div class="col-2" style="font-size: 20px">
+              <div class="emotion-label-cont">
+                <%= Emotion.all.third.rating %>
+                <div class="emotion-label" style="background-color: #F7955F "></div>
+              </div>
             </div>
-            <div class="col-2 emotion-label">
-              <%= Emotion.all.fourth.rating %>
+            <div class="col-2" style="font-size: 20px">
+              <div class="emotion-label-cont">
+                <%= Emotion.all.fourth.rating %>
+                <div class="emotion-label" style="background-color: #F7B363"></div>
+              </div>
             </div>
-            <div class="col-2 emotion-label">
-              <%= Emotion.all.last.rating %>
+            <div class="col-2" style="font-size: 20px">
+              <div class="emotion-label-cont">
+                <%= Emotion.all.last.rating %>
+                <div class="emotion-label" style="background-color: #F7D167 "></div>
+              </div>
             </div>
           </div>
         </div>
