@@ -169,3 +169,63 @@ h2 {
   }
 
 }
+
+
+
+
+
+
+.chat-wrapper {
+  background-color: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+
+  .form-group {
+    width: 100%;
+  }
+
+  .form-control {
+    flex-grow: 1;
+    background-color: #F3F3F3;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .avatar {
+    margin-right: 10px;
+  }
+
+  .chat-note {
+    position: relative;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  .chat-note-message {
+    background-color: #6D6BB4;
+    margin-bottom: 0px;
+    border-radius: 10px 10px 10px 0px;
+    padding: 10px;
+    color: white;
+  }
+
+  .chat-note-time {
+    position: absolute;
+    right: 15px;
+    font-size: 80%;
+    color: grey;
+    bottom: -20px;
+  }
+
+  .notes-button {
+    margin-left: 10px;
+  }
+  .notes-button {
+    background-color: #F68B99;
+    border-radius: 5px;
+  }
+}
+
+
