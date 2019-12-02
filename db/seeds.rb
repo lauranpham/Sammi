@@ -12,7 +12,9 @@ User.destroy_all
 # 1 teacher and 20 students
 puts 'Creating Users...'
 teacher_user = User.create!(first_name: 'Kate', last_name: 'Haywood', email: 'khaywood@teacher.com', password: '123123', teacher: true, photo: "teacher1.jpeg" )
-main_student = User.create!(first_name: 'Jamie', last_name: 'Smith', email: 'jren@student.com', password: '123123', teacher: false, photo: "male1.jpeg")
+teacher_user2 = User.create!(first_name: 'Miles', last_name: 'Hoffman', email: 'mhoffman@teacher.com', password: '123123', teacher: true, photo: "teacher2.jpeg" )
+
+main_student = User.create!(first_name: 'Jamie', last_name: 'Smith', email: 'jsmith@student.com', password: '123123', teacher: false, photo: "male1.jpeg")
 
 female_students = []
 female_count = 1
@@ -99,5 +101,9 @@ students_array.each do |student|
 end
 
 ClassMembership.create!(user: main_student, subject: main_subject)
+
+# Notes
+puts 'Creating Teacher Notes'
+
 
 puts 'Finished!'
