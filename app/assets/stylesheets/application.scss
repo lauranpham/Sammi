@@ -18,7 +18,7 @@
 @import "appointments/index";
 
 a{
-  color:black;
+  color: black;
   text-decoration: none;
 }
 a:hover{
@@ -26,6 +26,9 @@ a:hover{
   color: black;
 }
 
+h1, h3, h5 {
+  color: #596475;
+}
 body {
   background-color: #F4F5FA;
 }
