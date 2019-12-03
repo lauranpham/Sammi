@@ -13,7 +13,7 @@
       <button class="btn btn-sammi appointment" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         Create an appointment
       </button>
-      <div class="collapse" id="collapseExample">
+      <div class="collapse" id="collapseExample" style="margin-bottom: 15px;">
         <div class="card card-body">
           <%= render 'shared/appointments_form' %>
         </div>
@@ -42,10 +42,13 @@
                     <h4>Mon</h4>
                     <p>8:45 am</p>
                   </div>
-                  <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
-                    <div class="bar2" style="width: <%= @student.daily_emotions.fifth.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
-                  </div>
-                  <%= @student.daily_emotions.fifth.emotion.rating %>
+
+                  <!-- <div class="bar3"> -->
+                    <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+                      <div class="bar2" style="width: <%= @student.daily_emotions.fifth.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
+                    </div>
+                    <%= @student.daily_emotions.fifth.emotion.rating %>
+                  <!-- </div> -->
                 </div>
                 <div class="collection">
                   <div class="time-title">
@@ -53,40 +56,51 @@
                     <p>8:45 am</p>
                   </div>
 
-                  <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
-                    <div class="bar2" style="width: <%= @student.daily_emotions.fourth.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
-                  </div>
-                  <%= @student.daily_emotions.fourth.emotion.rating %>
+                  <!-- <div class="bar3"> -->
+                    <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+                      <div class="bar2" style="width: <%= @student.daily_emotions.fourth.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
+                    </div>
+                    <%= @student.daily_emotions.fourth.emotion.rating %>
+                <!-- </div> -->
                 </div>
                 <div class="collection">
                   <div class="time-title">
                     <h4>Wed</h4>
                     <p>8:45 am</p>
                   </div>
-                  <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
-                    <div class="bar2" style="width: <%= @student.daily_emotions.third.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
-                  </div>
-                  <%= @student.daily_emotions.third.emotion.rating %>
+
+                  <!-- <div class="bar3"> -->
+                    <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+                      <div class="bar2" style="width: <%= @student.daily_emotions.third.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
+                    </div>
+                    <%= @student.daily_emotions.third.emotion.rating %>
+                  <!-- </div> -->
                 </div>
                 <div class="collection">
                   <div class="time-title">
                     <h4>Thu</h4>
                     <p>8:45 am</p>
                   </div>
-                  <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
-                    <div class="bar2" style="width: <%= @student.daily_emotions.second.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
-                  </div>
-                  <%= @student.daily_emotions.second.emotion.rating %>
+
+                  <!-- <div class="bar3"> -->
+                    <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+                      <div class="bar2" style="width: <%= @student.daily_emotions.second.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
+                    </div>
+                    <%= @student.daily_emotions.second.emotion.rating %>
+                  <!-- </div> -->
                 </div>
                 <div class="collection">
                   <div class="time-title">
                     <h4>Fri</h4>
                     <p>8:45 am</p>
                   </div>
-                  <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
-                    <div class="bar2" style="width: <%= @student.daily_emotions.first.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
-                  </div>
-                  <%= @student.daily_emotions.first.emotion.rating %>
+
+                  <!-- <div class="bar3"> -->
+                    <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
+                      <div class="bar2" style="width: <%= @student.daily_emotions.first.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
+                    </div>
+                    <%= @student.daily_emotions.first.emotion.rating %>
+                  <!-- </div> -->
                 </div>
               </div>
             </div>
