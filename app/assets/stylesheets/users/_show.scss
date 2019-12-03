@@ -33,8 +33,17 @@ h2 {
   background-color: #F7E5E9;
   padding: 0px 30px;
   border-radius: 20px;
+  position:relative;
 }
 
+.top .avatar{
+  position:absolute;
+  height:120px;
+  width:120px;
+  transform: translate(-70%, -70%);
+
+
+}
 
 .my-date {
   position: absolute;
