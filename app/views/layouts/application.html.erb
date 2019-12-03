@@ -23,11 +23,11 @@
   </head>
   <body>
 
-    <% if params[:action] != 'new' %>
+    <% if params[:action] != 'new' || params[:controller] == 'pages' && params[:action] == 'home' %>
       <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
-    <% if params[:controller] == 'subjects' && params[:action] == 'show' || params[:controller] == 'users' && params[:action] == 'new' %>
+    <% if params[:controller] == 'subjects' && params[:action] == 'show' || params[:controller] == 'users' && params[:action] == 'new' ||  params[:controller] == 'pages' && params[:action] == 'home'%>
       <%= yield %>
     <% else %>
       <div class="container">

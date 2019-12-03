@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'users/show'
   devise_for :users
-  root to: 'pages#home'
+  authenticated :user do
+    root to: "subjects#index"
+  end
 
   resources :subjects do
     resources :class_memberships, only: [:create]
@@ -21,4 +23,5 @@ Rails.application.routes.draw do
   resources :class_memberships, only: [:destroy]
   resources :daily_emotions, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'pages#home', as: "landing"
 end
