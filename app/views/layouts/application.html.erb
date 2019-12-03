@@ -27,7 +27,7 @@
       <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
-    <% if params[:controller] == 'subjects' && params[:action] == 'show' || params[:controller] == 'users' && params[:action] == 'new' ||  params[:controller] == 'pages' && params[:action] == 'home'%>
+    <% if params[:controller] == 'subjects' && params[:action] == 'show' || params[:controller] == 'devise/sessions' && params[:action] == 'new' ||  params[:controller] == 'pages' && params[:action] == 'home' %>
       <%= yield %>
     <% else %>
       <div class="container">
@@ -35,7 +35,9 @@
       </div>
     <% end %>
 
-    <%= render 'shared/footer' %>
+    <% if params[:controller] != 'devise/sessions' && params[:action] == 'new' %>
+      <%= render 'shared/footer' %>
+    <% end %>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
