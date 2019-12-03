@@ -29,6 +29,7 @@
 h2 {
   color: #F56C79;
 }
+
 .top {
   background-color: #F7E5E9;
   padding: 0px 30px;
@@ -60,6 +61,41 @@ h2 {
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
+
+  h3 {
+    margin-bottom: 40px;
+  }
+}
+
+.week-bars {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.carousel.slide {
+  min-height: 60%;
+  .carousel-inner, .carousel-item {
+    height: 100%;
+  }
+
+.carousel-control-next {
+  bottom: auto;
+  top: 125%;
+  right: 20%;
+}
+
+.carousel-control-prev {
+  bottom: auto;
+  top: 125%;
+  left: 20%;
+}
+
+}
+.iconz {
+  color: black;
+  font-size: 30px;
 }
 
 .nomarg {
@@ -171,7 +207,12 @@ h2 {
 
 }
 
-
+.chart-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+}
 
 
 
@@ -195,6 +236,7 @@ h2 {
 
   .avatar {
     margin-right: 10px;
+    margin-bottom: 19px;
   }
 
   .chat-note {
@@ -206,6 +248,7 @@ h2 {
 
   .chat-note-message {
     background-color: #6D6BB4;
+    // background-color: #9ECE9A;
     margin-bottom: 0px;
     border-radius: 2px 10px 10px 10px;
     padding: 10px;
@@ -213,11 +256,10 @@ h2 {
   }
 
   .chat-note-time {
-    position: absolute;
-    right: 395px;
     font-size: 80%;
     color: grey;
-    bottom: -20px;
+    text-align: right;
+    padding-right: 20px;
   }
 
   .notes-button {

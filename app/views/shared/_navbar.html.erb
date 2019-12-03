@@ -2,9 +2,8 @@
   <%= link_to subjects_path, class: "navbar-brand" do %>
     <h1 id="sammi-logo">Sammi</h1>
     <% end %>
-
   <% if current_user %>
-    <h4>Welcome back, <%= current_user.first_name %></h4>
+    <h4 class="greeting">Welcome back, <%= current_user.first_name %></h4>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
