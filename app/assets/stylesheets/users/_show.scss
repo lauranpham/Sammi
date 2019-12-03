@@ -126,10 +126,15 @@ h2 {
 
 .bar {
   border-radius: 15px;
+  // margin-right: 10px;
 }
 .bar2 {
   border-radius: 15px;
 }
+// .bar3 {
+//   display: flex;
+//   align-items: center;
+// }
 .time-title {
   display: flex;
   justify-content: space-between;
@@ -140,6 +145,7 @@ h2 {
   }
   p {
     font-size: 12px;
+    // margin-left: 10px;
       }
 }
 .input {
