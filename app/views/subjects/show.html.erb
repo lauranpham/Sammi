@@ -90,7 +90,7 @@
           <% end %>
           </div>
           <div class='card-status'>
-            <h2>Today's Emotion:</h2>
+            <h2>Class Mood</h2>
             <p id="emotion"><%= Emotion.all.find((@subject.class_members.map {|student| student.daily_emotions.map{|emo| emo.emotion.number}.sum / student.daily_emotions.length}.sum / @subject.class_members.length)).rating %></p>
           </div>
         </div>
