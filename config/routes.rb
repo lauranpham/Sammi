@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/show'
   devise_for :users
-  root to: 'subjects#index'
+  root to: 'pages#home'
 
   resources :subjects do
     resources :class_memberships, only: [:create]
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       resources :notes
     end
   end
+
+  resources :daily_emotions, only: [:new]
 
   resources :appointments, only: [:show, :index, :destroy, :edit, :update]
 

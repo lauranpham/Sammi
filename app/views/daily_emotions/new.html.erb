@@ -1,0 +1,6 @@
+<% if user_signed_in? && !current_user.teacher && !current_user.has_submitted_today? %>
+  <%= simple_form_for(@daily_emotion) do |f| %>
+    <%= f.input :emotion_id, collection: Emotion.all, as: :radio_buttons %>
+    <%= f.submit class: "btn btn-sammi"%>
+  <% end %>
+<% end %>

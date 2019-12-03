@@ -1,9 +1,34 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="container">
+    <h1>MeMindful cares about youth mental health</h1>
+    <h4>We want to help students and teachers develop youth emotional awareness
+    and understanding</h4>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmfQBqNPpz1Ney9QPM-Lj3K5_741wHnyXC_tLFsUDqjvbZqQ/viewform?usp=sf_link">Log In</a>
+  </div>
+</div>
 
-<% if user_signed_in? && !current_user.teacher && !current_user.has_submitted_today? %>
-  <%= simple_form_for(@daily_emotion) do |f| %>
-    <%= f.input :emotion_id, collection: Emotion.all, as: :radio_buttons %>
-    <%= f.submit class: "btn btn-sammi"%>
-  <% end %>
-<% end %>
+<!-- code a "How it works" section -->
+<div class= "section">
+  <h2>How it works</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="images/apply.svg">
+      <h3>Emotional Awareness</h3>
+      <p>Students and teachers develop greater emotional awareness</p>
+    </div>
+
+    <div class="card">
+      <img src="images/product.svg">
+      <h3>Develop Mental Health</h3>
+      <p>Students learn to be self managers of their mental health</p>
+    </div>
+
+    <div class="card">
+      <img src="images/learn.svg">
+      <h3>Emotional Support</h3>
+      <p>Students gain greater emotional support</p>
+    </div>
+
+  </div>
+</div>
+
