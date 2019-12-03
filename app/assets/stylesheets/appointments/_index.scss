@@ -3,11 +3,12 @@
   border-radius: 10px;
   padding: 10px;
   margin: 20px 0px;
+  align-items: center;
 }
 
 .appointment-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .dropdown-menu-right {
@@ -23,3 +24,6 @@
   color: #FF6874;
 }
 
+.appointment-cancel {
+  text-align: right;
+}
