@@ -122,6 +122,10 @@ h2 {
   display-wrap: wrap;
   justify-content: space-between;
   margin: 10px 0px;
+  align-items: center;
+  h4, p {
+    margin: 0 !important;
+  }
 }
 .monthly-status {
   padding: 0px !important;
