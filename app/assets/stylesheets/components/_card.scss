@@ -12,6 +12,7 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   object-fit: cover;
+  margin:20px 0;
 }
 
 .card-container{
@@ -45,10 +46,10 @@
   align-items: center;
   border-radius: 16px;
   margin-top:10px;
+  border: 1px, solid black;
   color: #FF626F;
   margin-bottom: 20px;
   width:100%;
-  text-align: left;
 }
 .card-product {
   overflow: hidden;
@@ -83,4 +84,6 @@
   border-radius: 0px 16px 16px 0px;
   height:100%;
 }
+
+
 
