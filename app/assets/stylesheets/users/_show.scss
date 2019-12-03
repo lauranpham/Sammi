@@ -58,8 +58,41 @@ h2 {
   min-height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   height: 100%;
+  h3 {
+    margin-bottom: 40px;
+  }
+}
+
+.week-bars {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.carousel.slide {
+  min-height: 60%;
+  .carousel-inner, .carousel-item {
+    height: 100%;
+  }
+
+.carousel-control-next {
+  bottom: auto;
+  top: 125%;
+  right: 20%;
+}
+
+.carousel-control-prev {
+  bottom: auto;
+  top: 125%;
+  left: 20%;
+}
+
+}
+.fas {
+  color: black;
+  font-size: 30px;
 }
 
 .nomarg {
@@ -77,6 +110,10 @@ h2 {
   display-wrap: wrap;
   justify-content: space-between;
   margin: 10px 0px;
+  align-items: center;
+  h4, p {
+    margin: 0;
+  }
 }
 .monthly-status {
   padding: 0px !important;
@@ -103,7 +140,6 @@ h2 {
   }
   p {
     font-size: 12px;
-    margin-bottom: 0.5rem;
       }
 }
 .input {
