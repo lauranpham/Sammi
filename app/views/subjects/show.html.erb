@@ -1,15 +1,18 @@
 
 <div class='subject-banner' style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url('<%= asset_path(@subject.photo) %>');">
-  <div class="banner-text">
+
+  <div class="container banner-text m-auto">
     <div class='col-6'>
       <h1><%= @subject.name %></h1>
       <p><%= @subject.class_members.length %> students registered in this class</p>
     </div>
     <div class='col-6'>
-      <button class='btn-sammi'>Add Student</button>
-      <button class='btn-ghost'>Back</button>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-sammi">Add Student</button>
+      <%= link_to 'Back', subjects_path, class: 'btn btn-ghost'%>
     </div>
   </div>
+
 </div>
 <div class='container'>
 <% if @subject.class_members.length > 0 %>
@@ -25,7 +28,7 @@
 </div>
 <div class="student-index">
   <div class='row'>
-    <div class='col-8'>
+    <div class='col-12 col-md-8'>
       <div class='row'>
         <% @subject.class_members.each do |member| %>
           <div class='col-12 col-md-12 col-lg-6'>
@@ -43,22 +46,16 @@
                 </div>
                 <div class='col-4 pl-0'>
                   <div class="card-product d-flex">
-                    <div class='col-6'>
-                      <p id="emotion"><%= member.daily_emotions.first.emotion.rating %></p>
-                    </div>
-                    <div class='col-6'>
-                      <% if member.daily_emotions.count > 3 %>
-                        <% if member.daily_emotions.first.emotion.number > member.daily_emotions.second.emotion.number %>
-                          <i class="fas fa-sort-up fa-lg"></i>
-                          <% elsif member.daily_emotions.first.emotion.number < member.daily_emotions.second.emotion.number %>
-                          <i class="fas fa-sort-down fa-lg"></i>
-                          <% else %>
-                          <i class="fas fa-minus fa-sm"></i>
-                        <% end %>
-                      <% else %>
-                        <i class="<%= ["fas fa-minus fa-sm","fas fa-sort-up fa-lg","fas fa-sort-down fa-lg"].sample %>" ></i>
+                    <p id="emotion"><%= member.daily_emotions.first.emotion.rating %></p>
+                    <% if member.daily_emotions.count > 3 %>
+                      <% if member.daily_emotions.first.emotion.number > member.daily_emotions.second.emotion.number %>
+                        <i class="fas fa-sort-up"></i>
+                        <% elsif member.daily_emotions.first.emotion.number < member.daily_emotions.second.emotion.number %>
+                        <i class="fas fa-sort-down"></i>
                       <% end %>
-                    </div>
+                    <% else %>
+                      <i class="<%= ["","fas fa-sort-up","fas fa-sort-down"].sample %>" ></i>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -69,19 +66,19 @@
       </div>
     </div>
     <div class='col-4'>
-      <div class='stats-sticky'>
-        <div class='container justify-content-around'>
-          <div class='row d-flex justify-content-around'>
+      <div class='stats-sticky d-none d-md-block p-0'>
+        <div class='container'>
+          <div class='row d-flex' style='justify-content:center;padding-top:10px;'>
             <h2>Overview</h2>
           </div>
           <br>
-          <div class='row'>
+          <div class='row d-flex justify-content-between'>
           <% Emotion.all.each do|emo| %>
-            <div class='col-2'>
+            <div class='col-4'>
               <h2><%= emo.rating %></h2>
             </div>
-            <div class='col-10'>
-              <div class="bar" style="width: <%= @emo_prop[emo.number] * 2 %>%; height: 15px; background-color: <%= emo.color %>;">
+            <div class='col-8'>
+              <div class="bar" style="width: <%= @emo_prop[emo.number] * 3 %>%; height: 15px; background-color: <%= emo.color %>;">
               </div>
              <!--  <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: <%= @emo_prop[emo.number] %>%;" aria-valuenow="<%= @emo_prop[emo.number] %>" aria-valuemin="0" aria-valuemax="100"><%= @emo_prop[emo.number].to_i %>%</div>
@@ -89,8 +86,10 @@
             </div>
           <% end %>
           </div>
-          <div class='card-status'>
-            <h2>Class Mood</h2>
+        </div>
+        <div class='status-sticky'>
+          <div class="card-product">
+            <h2>Class Mood: </h2>
             <p id="emotion"><%= Emotion.all.find((@subject.class_members.map {|student| student.daily_emotions.map{|emo| emo.emotion.number}.sum / student.daily_emotions.length}.sum / @subject.class_members.length)).rating %></p>
           </div>
         </div>
