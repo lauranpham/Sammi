@@ -19,8 +19,8 @@
         <div class="col-sm-12 col-lg-3">
           <%= image_tag asset_path(appointment.student.photo), class: "avatar m-auto", alt: "avatar" %>
         </div>
-        <div class="col-sm-12 col-lg-9 mt-2">
-          <h5><%= appointment.student.first_name %> <%= appointment.student.last_name %></h5>
+        <div class="col-sm-12 col-lg-9 d-flex align-items-center">
+          <h5 class="m-0"><%= appointment.student.first_name %> <%= appointment.student.last_name.first %>.</h5>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
        <p><%= appointment.date.strftime("%a, %d %B, %Y") %> </p>
     </div>
     <div class="col-1 mt-2">
-      <p><%= appointment.date.strftime("%I:%M %p") %> </p>
+      <p><%= appointment.date.strftime("%H:%M") %> </p>
     </div>
     <div class="col-4 appointment-buttons">
       <div class="row">
@@ -77,8 +77,8 @@
         <div class="col-sm-12 col-lg-3">
           <%= image_tag asset_path(appointment.student.photo), class: "avatar m-auto", alt: "avatar" %>
         </div>
-        <div class="col-sm-12 col-lg-9 mt-2">
-          <h5><%= appointment.student.first_name %> <%= appointment.student.last_name %></h5>
+        <div class="col-sm-12 col-lg-9 d-flex align-items-center">
+          <h5 class="m-0"><%= appointment.student.first_name %> <%= appointment.student.last_name.first %>.</h5>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@
        <p><%= appointment.date.strftime("%a, %d %B, %Y") %> </p>
     </div>
     <div class="col-1 mt-2">
-      <p><%= appointment.date.strftime("%I:%M %p") %> </p>
+      <p><%= appointment.date.strftime("%H:%M") %> </p>
     </div>
     <div class="col-4 appointment-buttons">
       <div class="row">
