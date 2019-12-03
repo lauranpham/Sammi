@@ -4,10 +4,10 @@
   <h1 style="margin-left: 20px;"><%= @student.first_name %> <%= @student.last_name %></h1>
 </div>
 
-<div class="top", style="background-color: <% @student.daily_emotions.last.emotion.color %>">
+<div class="top", style="background-color:">
   <div class="row nomarg">
     <div class="col-6 header">
-      <h2>How is <%= @student.first_name %> feeling today?</h2>
+      <h2 class="user-show-header">How is <%= @student.first_name %> feeling today?</h2>
       <p>Last check-in from Jamie was at <%= @student.daily_emotions.first.created_at.strftime("%I:%M %p on %a, %d %B, %Y") %> </p>
       <button class="btn btn-sammi appointment" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         Create an appointment
@@ -90,14 +90,16 @@
               </div>
             </div>
             <div class="carousel-item">
-              <%= line_chart @dailynumber, label: "Emotion", xtitle: "Date", ytitle: "Emotions", points: false, xmin: "2019-12-06", xmax: "2019-11-30" %>
+              <div class="chart-container">
+                <%= line_chart @dailynumber, label: "Emotion", xtitle: "Date", ytitle: "Emotions", points: false, xmin: "2019-12-06", xmax: "2019-11-30" %>
+              </div>
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars iconz"></i>
           </a>
           <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <i class="fas fa-chart-line"></i>
+            <i class="fas fa-chart-line iconz"></i>
           </a>
         </div>
 
@@ -153,9 +155,18 @@
 
 <div class="chat-wrapper">
   <div class="chat-note">
-      <%= image_tag current_user.photo, class: "avatar" %>
-      <p class="chat-note-message">Jamie had some family issues this week. Expect his mood to be lower than usual.</p>
-      <div class="chat-note-time"><%= Date.today %></div>
+      <%= image_tag Note.first.teacher.photo, class: "avatar" %>
+      <div class="chatz">
+        <p class="chat-note-message"><%= Note.first.content %></p>
+        <div class="chat-note-time"><%= Note.first.created_at.strftime("%A, %d %b %Y %l:%M %p") %></div>
+      </div>
+  </div>
+  <div class="chat-note">
+      <%= image_tag Note.second.teacher.photo, class: "avatar" %>
+      <div class="chatz">
+        <p class="chat-note-message"><%= Note.second.content %></p>
+        <div class="chat-note-time"><%= Note.second.created_at.strftime("%A, %d %b %Y %l:%M %p") %></div>
+      </div>
   </div>
   <form class="form-inline" action="/action_page.php" id="userform">
    <!--  Name: <%= @user.first_name %> -->
