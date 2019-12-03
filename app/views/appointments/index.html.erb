@@ -19,8 +19,8 @@
         <div class="col-sm-12 col-lg-3">
           <%= image_tag asset_path(appointment.student.photo), class: "avatar m-auto", alt: "avatar" %>
         </div>
-        <div class="col-sm-12 col-lg-9 mt-2">
-          <h5><%= appointment.student.first_name %> <%= appointment.student.last_name %></h5>
+        <div class="col-sm-12 col-lg-9 d-flex align-items-center">
+          <h5 class="m-0"><%= appointment.student.first_name %> <%= appointment.student.last_name.first %>.</h5>
         </div>
       </div>
     </div>
@@ -28,15 +28,15 @@
        <p><%= appointment.date.strftime("%a, %d %B, %Y") %> </p>
     </div>
     <div class="col-1 mt-2">
-      <p><%= appointment.date.strftime("%I:%M %p") %> </p>
+      <p><%= appointment.date.strftime("%H:%M") %> </p>
     </div>
-    <div class="col-5 appointment-buttons">
+    <div class="col-4 appointment-buttons">
       <div class="row">
         <% if current_user.teacher %>
-          <div class="col-5">
+          <div class="col-6">
             <%= link_to 'Completed', appointment_path(appointment, appointment: { completed: true }), method: :patch, class: 'btn btn-sammi' %>
           </div>
-          <div class="reschedule-button col-5">
+          <div class="reschedule-button col-6">
             <button class="btn btn-ghost" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               Reschedule
             </button>
@@ -55,15 +55,13 @@
               </div>
             </div>
           </div>
-          <div class="nav-item dropdown col-2" style="text-align: right">
-            <i class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <%= link_to 'Cancel', appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" } %>
-              </div>
-            </i>
-          </div>
         <% end %>
       </div>
+    </div>
+    <div class="col-1 appointment-cancel">
+      <%= link_to appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class='fas fa-times'></i>
+      <% end %>
     </div>
   </div>
 <% end %>
@@ -79,8 +77,8 @@
         <div class="col-sm-12 col-lg-3">
           <%= image_tag asset_path(appointment.student.photo), class: "avatar m-auto", alt: "avatar" %>
         </div>
-        <div class="col-sm-12 col-lg-9 mt-2">
-          <h5><%= appointment.student.first_name %> <%= appointment.student.last_name %></h5>
+        <div class="col-sm-12 col-lg-9 d-flex align-items-center">
+          <h5 class="m-0"><%= appointment.student.first_name %> <%= appointment.student.last_name.first %>.</h5>
         </div>
       </div>
     </div>
@@ -88,21 +86,17 @@
        <p><%= appointment.date.strftime("%a, %d %B, %Y") %> </p>
     </div>
     <div class="col-1 mt-2">
-      <p><%= appointment.date.strftime("%I:%M %p") %> </p>
+      <p><%= appointment.date.strftime("%H:%M") %> </p>
     </div>
-    <div class="col-5">
+    <div class="col-4 appointment-buttons">
       <div class="row">
         <div class="col-10"></div>
-        <div class="nav-item dropdown col-1" style="text-align: right">
-          <i class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <% if current_user.teacher %>
-                <%= link_to 'Hide appointment', appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" } %>
-              <% end %>
-            </div>
-          </i>
-        </div>
       </div>
+    </div>
+    <div class="col-1 appointment-cancel">
+      <%= link_to appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class='fas fa-times'></i>
+      <% end %>
     </div>
   </div>
 <% end %>

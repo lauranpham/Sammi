@@ -16,6 +16,11 @@ class DailyEmotionsController < ApplicationController
     redirect_to daily_emotions_path
   end
 
+  def new
+    @daily_emotion = DailyEmotion.new
+    authorize @daily_emotion
+  end
+
   private
 
   def daily_emotion_params

@@ -1,0 +1,25 @@
+.section h2 {
+  text-align: center;
+}
+
+.cards {
+  display:flex;
+  justify-content: space-around;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  min-width: 200px;
+  max-width: 300px;
+  margin: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgb(230,230,230);
+}
+.card img {
+  width: 100%;
+}
