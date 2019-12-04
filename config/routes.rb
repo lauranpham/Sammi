@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'notes/index'
+  get 'notes/new'
+  get 'notes/create'
+  get 'notes/edit'
+  get 'notes/update'
+  get 'notes/destroy'
   get 'users/show'
   devise_for :users
   authenticated :user do
