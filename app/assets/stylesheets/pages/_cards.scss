@@ -3,8 +3,10 @@
 }
 
 .cards {
-  display:flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .card {
@@ -12,8 +14,6 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  min-width: 200px;
-  max-width: 300px;
   margin: 20px;
   padding: 20px;
   box-sizing: border-box;
@@ -22,4 +22,8 @@
 }
 .card img {
   width: 100%;
+}
+
+.landing-card-image {
+  height: 300px;
 }

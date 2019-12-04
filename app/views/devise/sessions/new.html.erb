@@ -1,9 +1,10 @@
 <div class='credentials-container' style="min-height: calc(100vh)">
   <div class="login">
-    <h1 id="sammi-logo">Sammi</h1>
-    <div class="login-border">
+    <h1 id="sammi-logo-login">Sammi</h1>
+    <p id="login-tagline"> Supporting teachers, supporting students</p>
+    <div class="login-form">
 
-      <h1>Log in</h1>
+      <h1 class="login-header">Log in</h1>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
@@ -18,11 +19,13 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Log in", class: 'btn btn-sammi' %>
+          <%= f.button :submit, "Log in", class: 'btn-sammi' %>
         </div>
       <% end %>
 
-      <%= render "devise/shared/links" %>
+      <div class="container" id="devise-links">
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>
