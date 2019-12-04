@@ -1,20 +1,19 @@
 
-<div class='subject-banner' style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url('<%= asset_path(@subject.photo) %>');">
+<div class='subject-banner' style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('<%= asset_path(@subject.photo) %>');">
 
-  <div class="container banner-text m-auto">
+  <div class="container d-flex banner-text m-auto">
     <div class='col-6'>
       <h1><%= @subject.name %></h1>
       <p><%= @subject.class_members.length %> students registered in this class</p>
     </div>
-    <div class='col-6'>
+    <div class='col-6 d-flex' style='justify-content: flex-end;'>
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-sammi">Add Student</button>
-      <%= link_to 'Back', subjects_path, class: 'btn btn-ghost'%>
     </div>
   </div>
 
 </div>
-<div class='container'>
+<div class='container p-0'>
 <% if @subject.class_members.length > 0 %>
 <!-- This will be a bar showing the proportion for the entire class once we agree on a color scheme -->
 <div class='class-progress'>
@@ -49,12 +48,12 @@
                     <p id="emotion"><%= member.daily_emotions.first.emotion.rating %></p>
                     <% if member.daily_emotions.count > 3 %>
                       <% if member.daily_emotions.first.emotion.number > member.daily_emotions.second.emotion.number %>
-                        <i class="fas fa-sort-up"></i>
+                        <i class="fas fa-arrow-up"></i>
                         <% elsif member.daily_emotions.first.emotion.number < member.daily_emotions.second.emotion.number %>
-                        <i class="fas fa-sort-down"></i>
+                        <i class="fas fa-arrow-down"></i>
                       <% end %>
                     <% else %>
-                      <i class="<%= ["","fas fa-sort-up","fas fa-sort-down"].sample %>" ></i>
+                      <i class="<%= ["","fas fa-arrow-up","fas fa-arrow-down"].sample %>" ></i>
                     <% end %>
                   </div>
                 </div>
