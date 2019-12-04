@@ -9,6 +9,10 @@
   border-radius:10px;
 }
 
+.progress-bar:hover{
+  filter: blur(4px);
+}
+
 .card-subjects img {
   height: 100%;
   width: 140px;
