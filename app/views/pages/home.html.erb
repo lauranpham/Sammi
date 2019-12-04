@@ -1,8 +1,18 @@
 <div class="banner">
   <div class="container">
-    <h1 id="sammi-logo-large">Sammi</h1>
-    <h4 id="sammi-tagline">Supporting Teachers, Supporting Students</h4>
-    <%= link_to 'Learn More', subjects_path, class: "mt-2" %>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <h1 id="sammi-logo-large">Sammi</h1>
+        <p id="sammi-tagline">Supporting Teachers, Supporting Students</p>
+        <div class="btn-landing">
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="col-3">
+        <%= image_tag asset_path("emotion-reflection.svg"), class: "landing-card-image" %>
+      </div>
+    </div>
   </div>
 </div>
 <!-- code a "How it works" section -->
@@ -10,20 +20,20 @@
   <h2>How it works</h2>
   <div class="cards">
     <div class="card">
-      <%= image_tag asset_path("emotion-reflection.svg"), class: "landing-card-image" %>
-      <h3>Emotion Awareness</h3>
+      <%= image_tag asset_path("emotion-reflection2.svg"), class: "landing-card-image" %>
+      <h3>Awareness</h3>
       <p>Students and teachers shift towards a greater emotional awareness</p>
     </div>
 
     <div class="card">
-      <%= image_tag asset_path("analytics.svg"), class: "landing-card-image" %>
-      <h3>Emotion Analytics</h3>
+      <%= image_tag asset_path("analytics2.svg"), class: "landing-card-image" %>
+      <h3>Analytics</h3>
       <p>Teachers gain powerful analytics of students' emotional development</p>
     </div>
 
     <div class="card">
-      <%= image_tag asset_path("teamwork.svg"), class: "landing-card-image" %>
-      <h3>Emotion Support</h3>
+      <%= image_tag asset_path("teamwork2.svg"), class: "landing-card-image" %>
+      <h3>ESupport</h3>
       <p>Teachers provide informed emotional support to their students </p>
     </div>
 

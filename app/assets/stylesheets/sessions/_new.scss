@@ -1,0 +1,56 @@
+.credentials-container {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F4F5FA;
+}
+.login {
+  width: 30%;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  border-radius: 15px;
+  padding: 50px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+  color: grey;
+  background-color: white;
+}
+
+#sammi-logo-login {
+  color: #FF6874;
+  font-size: 80px;
+  text-align: center;
+  margin: 0;
+}
+
+#login-tagline {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#devise-links {
+  font-family: $body-font !important;
+  font-size: smaller;
+  font-weight: lighter;
+  text-align: center;
+  color: $gray;
+}
+
+#sign-up-link:hover {
+  text-decoration: underline;
+}
+
+#forgotten-link:hover {
+  text-decoration: underline;
+}
+
+
