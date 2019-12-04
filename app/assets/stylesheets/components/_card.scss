@@ -1,3 +1,42 @@
+
+.card-subjects {
+  overflow: hidden;
+  height: 140px;
+  background: white;
+  display: flex;
+  align-items: center;
+  margin-bottom:25px;
+  border-radius:10px;
+}
+
+.card-subjects img {
+  height: 100%;
+  width: 140px;
+  object-fit: cover;
+}
+
+.card-subjects h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-subjects p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-subjects .card-subjects-infos {
+  padding: 20px;
+  width:100%;
+}
+
+.card-subjects #emotion{
+  font-size:30px;
+}
 .card-category {
   background-size: cover;
   background-position: center;
@@ -8,13 +47,35 @@
   color: white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
   object-fit: cover;
   margin:20px 0;
+  position:relative;
 }
 
+.card-category-new {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  object-fit: cover;
+  margin:20px 0;
+  position:relative;
+}
+
+.card-category-new #emotion{
+  position:absolute;
+  left: 0;
+  transform: translate(-50%, -100%);
+
+}
 .card-container{
   border-radius: 10px;
   text-align:center;

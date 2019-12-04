@@ -1,44 +1,69 @@
 <!-- every page is already in a container from application.html.erb -->
 
-<h1>Your Subjects</h1>
+<div class='d-flex justify-content-between my-4 '>
+  <h1>Your Classes</h1>
+
+  <button class="btn btn-sammi" type="button" data-toggle="modal" data-target="#exampleModal">
+    Add new class
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New Class</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render 'shared/new_class' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class='row'>
   <% @subjects.each do |subject| %>
-    <div class='col-12 col-lg-4'>
+    <div class='col-12 col-lg-6'>
       <%= link_to subject_path(subject) do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path(subject.photo) %>')">
-          <%= subject.name %>
-        </div>
-      <% end %>
-      <% if subject.class_members.length > 0 %>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= @emo_index[Emotion.first.number] %>%" aria-valuenow="<%= @emo_index[Emotion.first.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-          <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= @emo_index[Emotion.second.number] %>%" aria-valuenow="<%= @emo_index[Emotion.second.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-          <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= @emo_index[Emotion.third.number] %>%" aria-valuenow="<%= @emo_index[Emotion.third.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-          <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= @emo_index[Emotion.fourth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fourth.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-          <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= @emo_index[Emotion.fifth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fifth.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      <% else %>
-      <% prop = @random_proportions.sample %>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= prop.first %>%" aria-valuenow="<%= prop.first %>" aria-valuemin="0" aria-valuemax="100"></div>
-          <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= prop.second %>%" aria-valuenow="<%= prop.second %>" aria-valuemin="0" aria-valuemax="100"></div>
-          <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= prop.third %>%" aria-valuenow="<%= prop.third %>" aria-valuemin="0" aria-valuemax="100"></div>
-          <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= prop.fourth %>%" aria-valuenow="<%= prop.fourth %>" aria-valuemin="0" aria-valuemax="100"></div>
-          <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= prop.fifth %>%" aria-valuenow="<%= prop.fifth %>" aria-valuemin="0" aria-valuemax="100"></div>
+
+        <div class="card-subjects">
+          <img src='<%= asset_path(subject.photo) %>'/>
+          <div class="card-subjects-infos">
+            <h2><%= subject.name %></h2>
+            <div class='d-flex justify-content-between'>
+              <% if subject.class_members.length > 0 %>
+                <p><%= subject.class_members.length %> students</p>
+                <div id='emotion'><%= Emotion.all[@emo_index.max_by{ |k,v| v }[0] - 1].rating %></div>
+              <% else %>
+                <p><%= rand(20..27) %> students</p>
+                <div id='emotion'><%= Emotion.all[rand(1..4)].rating %></div>
+              <% end %>
+            </div>
+            <br>
+            <% if subject.class_members.length > 0 %>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= @emo_index[Emotion.first.number] %>%" aria-valuenow="<%= @emo_index[Emotion.first.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= @emo_index[Emotion.second.number] %>%" aria-valuenow="<%= @emo_index[Emotion.second.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= @emo_index[Emotion.third.number] %>%" aria-valuenow="<%= @emo_index[Emotion.third.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= @emo_index[Emotion.fourth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fourth.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= @emo_index[Emotion.fifth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fifth.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            <% else %>
+            <% prop = @random_proportions.sample %>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= prop.first %>%" aria-valuenow="<%= prop.first %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= prop.second %>%" aria-valuenow="<%= prop.second %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= prop.third %>%" aria-valuenow="<%= prop.third %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= prop.fourth %>%" aria-valuenow="<%= prop.fourth %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= prop.fifth %>%" aria-valuenow="<%= prop.fifth %>" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
   <% end %>
-</div>
-<div class="row mt-3">
-  <div class="col-6">
-    <button class="btn btn-sammi" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      Add new subject
-    </button>
-    <div class="collapse" id="collapseExample">
-      <div class="card card-body">
-        <%= render 'shared/new_class' %>
-      </div>
-    </div>
-  </div>
 </div>
