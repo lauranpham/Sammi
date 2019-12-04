@@ -35,7 +35,7 @@
       </div>
     <% end %>
 
-    <% if params[:controller] != 'devise/sessions' && params[:action] == 'new' %>
+    <% if params[:controller] == 'pages' && params[:action] == 'home' %>
       <%= render 'shared/footer' %>
     <% end %>
     <%= javascript_pack_tag 'application' %>
