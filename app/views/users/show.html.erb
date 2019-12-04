@@ -14,7 +14,7 @@
         Create an appointment
       </button>
       <div class="collapse" id="collapseExample" style="margin-bottom: 15px;">
-        <div class="card card-body">
+        <div class="card card-body ml-0">
           <%= render 'shared/appointments_form' %>
         </div>
       </div>
@@ -105,8 +105,13 @@
               </div>
             </div>
             <div class="carousel-item">
-              <div class="chart-container">
-                <%= line_chart @dailynumber, label: "Emotion", xtitle: "Date", ytitle: "Emotions", points: false, xmin: "2019-12-06", xmax: "2019-11-30" %>
+              <div class="chart-container emo-chart" style="position: relative;">
+                <span style="position: absolute; left: 28px; top: 233px;"><%= Emotion.all.first.rating %></span>
+                <span style="position: absolute; left: 28px; top: 191px;"><%= Emotion.all.second.rating %></span>
+                <span style="position: absolute; left: 28px; top: 149px;"><%= Emotion.all.third.rating %></span>
+                <span style="position: absolute; left: 28px; top: 108px;"><%= Emotion.all.fourth.rating %></span>
+                <span style="position: absolute; left: 28px; top: 68px;"><%= Emotion.all.fifth.rating %></span>
+                <%= line_chart @dailynumber, label: "Emotion", xtitle: "Date", ytitle: "Emotions", points: true, xmin: "2019-12-02", xmax: "2019-12-06", min: 0, max: 5, id: 'chartkick', curve: true, discrete: false %>
               </div>
             </div>
           </div>
@@ -238,3 +243,4 @@
     </div>
   </div>
 </div> -->
+

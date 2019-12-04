@@ -31,7 +31,7 @@ class SubjectsController < ApplicationController
     if @subject.save
       redirect_to subjects_path
     else
-      redirect_to pet_path(@subject.pet)
+      render :new
     end
   end
 
