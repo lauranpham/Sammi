@@ -272,7 +272,19 @@ h2 {
     position: relative;
     margin-bottom: 20px;
     display: flex;
+    align-items: flex-start;
+  }
+
+  .note-teacher {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    min-width: 86.59px;
+    img {
+      margin-right: 0px !important;
+      margin-bottom: 0px !important;
+    }
   }
 
   .chat-note-message {

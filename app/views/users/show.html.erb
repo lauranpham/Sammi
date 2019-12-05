@@ -140,24 +140,12 @@
 
 
 <div class="chat-wrapper">
-  <div class="notes-wrapper">
+  <div class="notes-wrapper" id="notes-container">
   <% @student.student_note_relationships.each do |note| %>
-    <div class="chat-note">
-        <%= image_tag note.teacher.photo, class: "avatar" %>
-        <div class="chatz">
-          <p class="chat-note-message"><%= note.content %></p>
-          <div class="chat-note-time"><%= note.created_at.strftime("%A, %d %b %Y %l:%M %p") %></div>
-        </div>
-    </div>
+    <%= render 'shared/notes', note: note %>
   <% end %>
   </div>
-  <%= simple_form_for [@student, @note] do |f| %>
-    <%= hidden_field_tag :subject_id, @subject.id %>
-    <div class="d-flex align-items-center justify-content-between">
-      <%= f.input :content, as: :string, input_html: { class: 'form-control m-0' }, wrapper_html: { class: 'm-0' }, placeholder: 'Type here...', label: false %>
-      <%= f.submit 'Submit', class:'btn btn-sammi notes-button' %>
-    </div>
-  <% end %>
+ <%= render 'shared/note_form', student: @student, note: @note, subject: @subject %>
 </div>
 
 <% end %>
