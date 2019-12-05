@@ -27,7 +27,7 @@
 </div>
 <div class="student-index">
   <div class='row'>
-    <div class='col-12 col-md-8'>
+    <div class='col-12 col-md-9'>
       <div class='row'>
         <% @subject.class_members.each do |member| %>
           <div class='col-12 col-md-12 col-lg-6'>
@@ -46,7 +46,7 @@
                 <div class='col-4 pl-0'>
                   <div class="card-product d-flex">
                     <p id="emotion"><%= member.daily_emotions.first.emotion.rating %></p>
-                    <% if member.daily_emotions.count > 3 %>
+                    <% if member.daily_emotions.count > 2 %>
                       <% if member.daily_emotions.first.emotion.number > member.daily_emotions.second.emotion.number %>
                         <i class="fas fa-arrow-up"></i>
                         <% elsif member.daily_emotions.first.emotion.number < member.daily_emotions.second.emotion.number %>
@@ -64,29 +64,31 @@
         <% end %>
       </div>
     </div>
-    <div class='col-4'>
+    <div class='col-3'>
       <div class='stats-container'>
         <div class='stats-sticky d-none d-md-block'>
-          <div class='row d-flex' style='justify-content:center;padding-top:10px;'>
-            <h2>Overview</h2>
+          <div class='row d-flex mb-0' style='justify-content:center;padding:10px;'>
+            <h2>Mood Overview</h2>
           </div>
           <br>
-          <div class='row d-flex justify-content-between'>
+          <div class='row d-flex'style='align-items:center'>
           <% Emotion.all.each do|emo| %>
-            <div class='col-4'>
-              <h2><%= emo.rating %></h2>
+            <div class='col-6 mb-2'>
+              <h2 style='margin-bottom: 0;text-align: center;'><%= emo.rating %></h2>
             </div>
-            <div class='col-8'>
-              <div class="bar" style="width: <%= @emo_prop[emo.number] * 3 %>%; height: 15px; background-color: <%= emo.color %>;"></div>
+            <div class='col-6 p-0 mb-2'>
+              <div class="bar" style="width:<%= @emo_prop[emo.number] %>%; height: 15px; background-color: <%= emo.color %>;"></div>
             </div>
           <% end %>
           </div>
-        </div>
-        <div class='status-sticky'>
-          <div class="card-product">
-            <h2>Class Mood: </h2>
-            <p id="emotion"><%= Emotion.all.find((@subject.class_members.map {|student| student.daily_emotions.map{|emo| emo.emotion.number}.sum / student.daily_emotions.length}.sum / @subject.class_members.length)).rating %></p>
+          <br>
+          <div class='row d-flex mb-0' style='justify-content:center;'>
+            <h2>Average</h2>
           </div>
+          <div class='row d-flex mb-0' style='justify-content:center;'>
+            <p id='emotion'><%= Emotion.find(@emo_average.round).rating%></p>
+          </div>
+
         </div>
       </div>
     </div>
