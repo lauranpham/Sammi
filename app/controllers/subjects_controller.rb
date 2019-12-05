@@ -2,12 +2,31 @@ class SubjectsController < ApplicationController
   def index
     @subjects = policy_scope(Subject)
     @subject = Subject.new
-    emotions_map = Subject.first.class_members.map { |stu| stu.daily_emotions.first.emotion.number }
-    grouped_emotions = emotions_map.group_by{|r| r}
-    length = emotions_map.length
-    count_emos = grouped_emotions.map { |key, value| { key => value.length } }
-    @emo_index = count_emos.map { |i| i.map { |key, value| { key => (value / length.to_f) * 100 } } }.map { |i| i.first }.reduce Hash.new, :merge
-    @emo_average = @emo_index.map {|k, v| k * v }.sum / 100
+    @emotions_hash = {}
+    @subjects.each do |subject|
+      @emotions_hash[subject.id] = subject.class_members.map { |stu| stu.daily_emotions.first.emotion.number }
+    end
+    # emotions_map = Subject.first.class_members.map { |stu| stu.daily_emotions.first.emotion.number }
+    @emotions_hash = @emotions_hash.map do |k, v|
+      [k, v.group_by{|r| r}]
+    end
+
+    @emotions_hash = @emotions_hash.to_h
+
+    @emotions_hash = @emotions_hash.map do |k, v|
+      [k, v.map { |k, v| [k, v.length] }.to_h]
+    end
+
+    @emotions_hash.map! do |subject|
+      [subject[0], subject[1].map{ |k, v| [k, v.to_f / subject[1].values.inject(:+)] }.to_h]
+    end
+
+    # grouped_emotions = emotions_map.group_by{|r| r}
+    # length = emotions_map.length
+    # count_emos = grouped_emotions.map { |key, value| { key => value.length } }
+    # @emo_index = count_emos.map { |i| i.map { |key, value| { key => (value / length.to_f) * 100 } } }.map { |i| i.first }.reduce Hash.new, :merge
+    # @emo_average = @emo_index.map {|k, v| k * v }.sum / 100
+    # raise
 
     @random_proportions =
       { 2 => [25, 20, 35, 10, 10],
