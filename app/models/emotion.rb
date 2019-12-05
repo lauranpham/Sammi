@@ -23,10 +23,10 @@ class Emotion < ApplicationRecord
     num = self.number
     case num
     when 1 then '#F25855'
-    when 2 then '#F5785A'
-    when 3 then '#F7955F'
-    when 4 then '#F7B363'
-    when 5 then '#F7D167'
+    when 2 then '#F7955F'
+    when 3 then '#F7B363'
+    when 4 then '#F7D167'
+    when 5 then '#ABD682'
     end
   end
 end
