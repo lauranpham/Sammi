@@ -62,12 +62,12 @@ puts 'Creating Daily Emotions...'
 student_emotion_array = []
 
 low_emotion_range = Emotion.all.slice(0,3)
-30.times do
+15.times do
   student_emotion_array << DailyEmotion.create!(emotion: low_emotion_range.sample, user: main_student)
 end
 
 positive_emotion_range = Emotion.all.slice(2,3)
-30.times do
+45.times do
   student_emotion_array << DailyEmotion.create!(emotion: positive_emotion_range.sample, user: main_student)
 end
 
@@ -88,10 +88,10 @@ end
 # 3 upcoming appointments, 2 past appointments
 puts 'Creating Appointments...'
 
-Appointment.create!(student: students_array[0], teacher: teacher_user, date: DateTime.new(2019,12,8,8,30))
+Appointment.create!(student: students_array[0], teacher: teacher_user, date: DateTime.new(2019,12,10,8,30))
 Appointment.create!(student: students_array[1], teacher: teacher_user, date: DateTime.new(2019,12,9,13))
 Appointment.create!(student: students_array[2], teacher: teacher_user, date: DateTime.new(2019,12,6,13))
-Appointment.create!(student: students_array[3], teacher: teacher_user, date: DateTime.new(2019,11,23,15,30), completed: true)
+Appointment.create!(student: students_array[3], teacher: teacher_user, date: DateTime.new(2019,11,25,15,30), completed: true)
 Appointment.create!(student: students_array[4], teacher: teacher_user, date: DateTime.new(2019,11,20,8,30), completed: true)
 
 # Class Memberships
@@ -108,8 +108,8 @@ puts 'Creating Teacher Notes'
 note1 = Note.new(student: main_student, teacher: teacher_user2, content: "Jamie had some family issues this week. Expect his mood to be lower than usual.")
 note2 = Note.new(student: main_student, teacher: teacher_user3, content: "Jamie was disengaged and refused to complete work in English class today. I have called home and his parents are also concerned.")
 
-note1.created_at = DateTime.new(2019,12,4)
-note2.created_at = DateTime.new(2019,12,5)
+note1.created_at = DateTime.new(2019,12,4,15,15)
+note2.created_at = DateTime.new(2019,12,5,15,27)
 
 note1.save
 note2.save

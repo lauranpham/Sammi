@@ -15,15 +15,16 @@
   flex-direction: column;
   text-align: center;
   margin: 20px;
-  padding: 20px;
+  padding: 20px 30px;
   box-sizing: border-box;
-  border-radius: 3px;
+  border-radius: 10px;
   box-shadow: 0 0 5px rgb(230,230,230);
 }
 .card img {
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .landing-card-image {
-  height: 300px;
+  height: 250px;
 }
