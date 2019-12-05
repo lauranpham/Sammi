@@ -36,7 +36,7 @@
             <div class='d-flex justify-content-between'>
               <% if subject.class_members.length > 0 %>
                 <p><%= subject.class_members.length %> students</p>
-                <div id='emotion'><%= Emotion.all[@emo_index.max_by{ |k,v| v }[0] - 1].rating %></div>
+                <div id='emotion'><%= Emotion.find(@emo_average.round).rating %></div>
               <% else %>
                 <p><%= rand(20..27) %> students</p>
                 <div id='emotion'><%= Emotion.all[rand(1..4)].rating %></div>
