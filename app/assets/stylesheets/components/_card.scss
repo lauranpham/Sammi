@@ -9,8 +9,14 @@
   border-radius:10px;
 }
 
+.progress-bar #emotion-pro{
+  font-size:1px;
+}
+
 .progress-bar:hover{
-  filter: blur(4px);
+  #emotion-pro{
+    transform: scale(80)
+  }
 }
 
 .card-subjects img {
