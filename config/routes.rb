@@ -15,9 +15,13 @@ Rails.application.routes.draw do
     resources :class_memberships, only: [:create]
     resources :users, only: [:show] do
       resources :appointments, only: [:create]
-      resources :notes
     end
   end
+
+  resources :users, only: [] do
+    resources :notes, only: [:create]
+  end
+  resources :notes, only: [:index, :destroy]
 
   resources :daily_emotions, only: [:new]
 

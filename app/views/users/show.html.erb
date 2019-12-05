@@ -14,7 +14,7 @@
         Create an appointment
       </button>
       <div class="collapse" id="collapseExample" style="margin-bottom: 15px;">
-        <div class="card card-body ml-0">
+        <div class="card card-body ml-0" style="border-radius: 15px;">
           <%= render 'shared/appointments_form' %>
         </div>
       </div>
@@ -47,7 +47,7 @@
                     <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
                       <div class="bar2" style="width: <%= @student.daily_emotions.fifth.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
                     </div>
-                    <%= @student.daily_emotions.fifth.emotion.rating %>
+                    <span class="today-emoticon"><%= @student.daily_emotions.fifth.emotion.rating %></span>
                   <!-- </div> -->
                 </div>
                 <div class="collection">
@@ -60,7 +60,7 @@
                     <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
                       <div class="bar2" style="width: <%= @student.daily_emotions.fourth.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
                     </div>
-                    <%= @student.daily_emotions.fourth.emotion.rating %>
+                    <span class="today-emoticon"><%= @student.daily_emotions.fourth.emotion.rating %></span>
                 <!-- </div> -->
                 </div>
                 <div class="collection">
@@ -73,7 +73,7 @@
                     <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
                       <div class="bar2" style="width: <%= @student.daily_emotions.third.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
                     </div>
-                    <%= @student.daily_emotions.third.emotion.rating %>
+                    <span class="today-emoticon"><%= @student.daily_emotions.third.emotion.rating %></span>
                   <!-- </div> -->
                 </div>
                 <div class="collection">
@@ -86,7 +86,7 @@
                     <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
                       <div class="bar2" style="width: <%= @student.daily_emotions.second.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
                     </div>
-                    <%= @student.daily_emotions.second.emotion.rating %>
+                    <span class="today-emoticon"><%= @student.daily_emotions.second.emotion.rating %></span>
                   <!-- </div> -->
                 </div>
                 <div class="collection">
@@ -99,18 +99,18 @@
                     <div class="bar" style="width: 100px; height: 15px; background-color: #E2E2E2;">
                       <div class="bar2" style="width: <%= @student.daily_emotions.first.emotion.number.to_f / 5 * 100 %>px; height: 15px; background-color: #F7D167;"></div>
                     </div>
-                    <%= @student.daily_emotions.first.emotion.rating %>
+                    <span class="today-emoticon"><%= @student.daily_emotions.first.emotion.rating %></span>
                   <!-- </div> -->
                 </div>
               </div>
             </div>
             <div class="carousel-item">
               <div class="chart-container emo-chart" style="position: relative;">
-                <span style="position: absolute; left: 28px; top: 233px;"><%= Emotion.all.first.rating %></span>
-                <span style="position: absolute; left: 28px; top: 191px;"><%= Emotion.all.second.rating %></span>
-                <span style="position: absolute; left: 28px; top: 149px;"><%= Emotion.all.third.rating %></span>
-                <span style="position: absolute; left: 28px; top: 108px;"><%= Emotion.all.fourth.rating %></span>
-                <span style="position: absolute; left: 28px; top: 68px;"><%= Emotion.all.fifth.rating %></span>
+                <span style="position: absolute; left: 28px; top: 211px;"><%= Emotion.all.first.rating %></span>
+                <span style="position: absolute; left: 28px; top: 168px;"><%= Emotion.all.second.rating %></span>
+                <span style="position: absolute; left: 28px; top: 127px;"><%= Emotion.all.third.rating %></span>
+                <span style="position: absolute; left: 28px; top: 83px;"><%= Emotion.all.fourth.rating %></span>
+                <span style="position: absolute; left: 28px; top: 40px;"><%= Emotion.all.fifth.rating %></span>
                 <%= line_chart @dailynumber, label: "Emotion", xtitle: "Date", ytitle: "Emotions", points: true, xmin: "2019-12-02", xmax: "2019-12-06", min: 0, max: 5, id: 'chartkick', curve: true, discrete: false %>
               </div>
             </div>
@@ -134,113 +134,30 @@
           <%= render partial: "calendar", locals: {events: @events} %>
         </div>
       </div>
-        <div class="container">
-          <div class="row text-center">
-            <div class="col-2" style="font-size: 20px">
-              <div class="emotion-label-cont">
-                <span><%= Emotion.all.first.rating %></span>
-                <p class="emotion-label" style="background-color: #F25855 "></p>
-              </div>
-            </div>
-            <div class="col-2" style="font-size: 20px">
-              <div class="emotion-label-cont">
-                <%= Emotion.all.second.rating %>
-                <div class="emotion-label" style="background-color: #F5785A "></div>
-              </div>
-            </div>
-            <div class="col-2" style="font-size: 20px">
-              <div class="emotion-label-cont">
-                <%= Emotion.all.third.rating %>
-                <div class="emotion-label" style="background-color: #F7955F "></div>
-              </div>
-            </div>
-            <div class="col-2" style="font-size: 20px">
-              <div class="emotion-label-cont">
-                <%= Emotion.all.fourth.rating %>
-                <div class="emotion-label" style="background-color: #F7B363"></div>
-              </div>
-            </div>
-            <div class="col-2" style="font-size: 20px">
-              <div class="emotion-label-cont">
-                <%= Emotion.all.last.rating %>
-                <div class="emotion-label" style="background-color: #F7D167 "></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
+</div>
 
 
 <div class="chat-wrapper">
-  <div class="chat-note">
-      <%= image_tag Note.first.teacher.photo, class: "avatar" %>
-      <div class="chatz">
-        <p class="chat-note-message"><%= Note.first.content %></p>
-        <div class="chat-note-time"><%= Note.first.created_at.strftime("%A, %d %b %Y %l:%M %p") %></div>
-      </div>
+  <div class="notes-wrapper">
+  <% @student.student_note_relationships.each do |note| %>
+    <div class="chat-note">
+        <%= image_tag note.teacher.photo, class: "avatar" %>
+        <div class="chatz">
+          <p class="chat-note-message"><%= note.content %></p>
+          <div class="chat-note-time"><%= note.created_at.strftime("%A, %d %b %Y %l:%M %p") %></div>
+        </div>
+    </div>
+  <% end %>
   </div>
-  <div class="chat-note">
-      <%= image_tag Note.second.teacher.photo, class: "avatar" %>
-      <div class="chatz">
-        <p class="chat-note-message"><%= Note.second.content %></p>
-        <div class="chat-note-time"><%= Note.second.created_at.strftime("%A, %d %b %Y %l:%M %p") %></div>
-      </div>
-  </div>
-  <form class="form-inline" action="/action_page.php" id="userform">
-   <!--  Name: <%= @user.first_name %> -->
-   <div class="form-group">
-      <input class="form-control" type="" name="comment" form="userform" placeholder="Type here..."></input>
-      <input class="btn btn-sammi notes-button" type="submit">
-   </div>
-  </form>
+  <%= simple_form_for [@student, @note] do |f| %>
+    <%= hidden_field_tag :subject_id, @subject.id %>
+    <div class="d-flex align-items-center justify-content-between">
+      <%= f.input :content, as: :string, input_html: { class: 'form-control m-0' }, wrapper_html: { class: 'm-0' }, placeholder: 'Type here...', label: false %>
+      <%= f.submit 'Submit', class:'btn btn-sammi notes-button' %>
+    </div>
+  <% end %>
 </div>
 
 <% end %>
-
-<!-- <div class="my-wrapper">
-
-
-    <div class="input-text">
-
-      <div class="avatar-container">
-        <%= image_tag current_user.photo, class: "avatar" %>
-      </div>
-
-      <div class="text">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis adipisci, hic molestiae
-        </p>
-      </div>
-
-      <p id="my-custom-date"><%= Date.today %></p>
-
-    </div>
-
-
-  <div class="my-submit-field">
-    <input class="something" type="text" placeholder="Type something...">
-    <div class="mybtn">
-      <div class="btn btn-primary">Submit</div>
-    </div>
-  </div>
-</div>
- -->
-
-
-<!--
-<div class="left-info">
-  <h4 class="left-title">
-
-  </h4>
-  <div class="d-flex">
-    <div class="left">
-
-    </div>
-    <div class="right">
-
-    </div>
-  </div>
-</div> -->
-

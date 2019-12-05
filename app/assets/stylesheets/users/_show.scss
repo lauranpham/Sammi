@@ -15,11 +15,16 @@
   display: flex;
   justify-content: center;
 }
+
+.today-emoticon {
+  font-size: 20px;
+}
+
 .header {
   display: flex;
   align-items: left;
   flex-direction: column;
-  justify-content: center;
+  padding-top: 40px;
 }
 
 .appointment {
@@ -159,7 +164,7 @@ h2 {
   align-items: center;
   width: 100px;
   h4 {
-    font-size: 15px;
+    font-size: 17px;
   }
   p {
     font-size: 12px;
@@ -241,7 +246,6 @@ h2 {
 
 
 
-
 .chat-wrapper {
   background-color: white;
   padding: 25px;
@@ -266,7 +270,7 @@ h2 {
 
   .chat-note {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
   }
@@ -296,4 +300,8 @@ h2 {
   }
 }
 
+.notes-wrapper {
+  overflow-y: auto;
+  max-height: 280px;
+}
 
