@@ -49,11 +49,11 @@ Emotion.create!(rating: 5)
 puts 'Creating Subjects...'
 
 main_subject = Subject.create!(name: "9C Science", photo: "science3.png", user: teacher_user )
-Subject.create!(name: "8A Science", photo: "science1.png", user: teacher_user )
-Subject.create!(name: "11B Science", photo: "science2.png", user: teacher_user )
-Subject.create!(name: "7A Math", photo: "math1.png", user: teacher_user )
-Subject.create!(name: "8B Math", photo: "math2.png", user: teacher_user )
-Subject.create!(name: "8C Science", photo: "math3.png", user: teacher_user )
+subject2 = Subject.create!(name: "8A Science", photo: "science1.png", user: teacher_user )
+subject3 = Subject.create!(name: "11B Science", photo: "science2.png", user: teacher_user )
+subject4 = Subject.create!(name: "7A Math", photo: "math1.png", user: teacher_user )
+subject5 =Subject.create!(name: "8B Math", photo: "math2.png", user: teacher_user )
+subject6 = Subject.create!(name: "8C Science", photo: "math3.png", user: teacher_user )
 
 #Daily Emotions
 # 19 students with one emotion
@@ -84,6 +84,15 @@ students_array.each do |student|
   de.save
 end
 
+students_array.each do |student|
+  fe = DailyEmotion.create!(emotion: Emotion.all.sample, user: student)
+  fe.created_at = DateTime.new(2019,12,5)
+  fe.save
+end
+
+
+
+
 #Appointments
 # 3 upcoming appointments, 2 past appointments
 puts 'Creating Appointments...'
@@ -97,11 +106,38 @@ Appointment.create!(student: students_array[4], teacher: teacher_user, date: Dat
 # Class Memberships
 # add all students to Year 9 Science subject
 puts 'Creating Class Memberships...'
-students_array.each do |student|
+# main subject class
+students_array.sample(9).each do |student|
   ClassMembership.create!(user: student, subject: main_subject)
 end
 
 ClassMembership.create!(user: main_student, subject: main_subject)
+
+# subject2
+students_array.sample(rand(10..17)).each do |student|
+  ClassMembership.create!(user: student, subject: subject2)
+end
+
+# subject3
+students_array.sample(rand(10..17)).each do |student|
+  ClassMembership.create!(user: student, subject: subject3)
+end
+
+# subject4
+students_array.sample(rand(10..17)).each do |student|
+  ClassMembership.create!(user: student, subject: subject4)
+end
+
+# subject5
+students_array.sample(rand(10..17)).each do |student|
+  ClassMembership.create!(user: student, subject: subject5)
+end
+
+# subject6
+students_array.sample(rand(10..17)).each do |student|
+  ClassMembership.create!(user: student, subject: subject6)
+end
+
 
 # Notes
 puts 'Creating Teacher Notes'
