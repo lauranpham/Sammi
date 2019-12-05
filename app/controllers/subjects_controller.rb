@@ -7,6 +7,7 @@ class SubjectsController < ApplicationController
     length = emotions_map.length
     count_emos = grouped_emotions.map { |key, value| { key => value.length } }
     @emo_index = count_emos.map { |i| i.map { |key, value| { key => (value / length.to_f) * 100 } } }.map { |i| i.first }.reduce Hash.new, :merge
+    @emo_average = @emo_index.map {|k, v| k * v }.sum / 100
     @random_proportions = [[25, 20, 35, 10, 10], [10, 10, 10, 5, 65], [8, 52, 15, 5, 20], [10, 10, 10, 20, 50], [13, 27, 20, 30, 30]]
   end
 
@@ -17,6 +18,7 @@ class SubjectsController < ApplicationController
     length = emotion_map.length
     count_emos = grouped_emotions.map { |key, value| { key => value.length } }
     @emo_prop = count_emos.map { |i| i.map { |key, value| { key => (value / length.to_f) * 100 } } }.map { |i| i.first }.reduce Hash.new, :merge
+    @emo_average = @emo_prop.map { |k, v| k * v }.sum / 100
     authorize @subject
   end
 
