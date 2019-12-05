@@ -33,17 +33,13 @@
           <img src='<%= asset_path(subject.photo) %>'/>
           <div class="card-subjects-infos">
             <h2><%= subject.name %></h2>
-            <div class='d-flex justify-content-between'>
-              <% if subject.class_members.length > 0 %>
-                <p><%= subject.class_members.length %> students</p>
-                <div id='emotion'><%= Emotion.find(@emo_average.round).rating %></div>
-              <% else %>
-                <p><%= rand(20..27) %> students</p>
-                <div id='emotion'><%= Emotion.all[rand(1..4)].rating %></div>
-              <% end %>
-            </div>
-            <br>
+
             <% if subject.class_members.length > 0 %>
+              <div class='d-flex justify-content-between'>
+                  <p><%= subject.class_members.length %> students</p>
+                  <div id='emotion'><%= Emotion.find(@emo_average.round).rating %></div>
+              </div>
+              <br>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= @emo_index[Emotion.first.number] %>%" aria-valuenow="<%= @emo_index[Emotion.first.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
                 <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= @emo_index[Emotion.second.number] %>%" aria-valuenow="<%= @emo_index[Emotion.second.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
@@ -52,13 +48,18 @@
                 <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= @emo_index[Emotion.fifth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fifth.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             <% else %>
-            <% prop = @random_proportions.sample %>
+            <% final_prop = @random_proportions.to_a.sample %>
+              <div class='d-flex justify-content-between'>
+                <p><%= rand(20..27) %> students</p>
+                <div id='emotion'><%= Emotion.find(final_prop[0]).rating %></div>
+              </div>
+              <br>
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= prop.first %>%" aria-valuenow="<%= prop.first %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= prop.second %>%" aria-valuenow="<%= prop.second %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= prop.third %>%" aria-valuenow="<%= prop.third %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= prop.fourth %>%" aria-valuenow="<%= prop.fourth %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= prop.fifth %>%" aria-valuenow="<%= prop.fifth %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= final_prop[1].first %>%" aria-valuenow="<%= final_prop.first %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= final_prop[1].second %>%" aria-valuenow="<%= final_prop.second %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= final_prop[1].third %>%" aria-valuenow="<%= final_prop[1].third %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= final_prop[1].fourth %>%" aria-valuenow="<%= final_prop[1].fourth %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= final_prop[1].fifth %>%" aria-valuenow="<%= final_prop[1].fifth %>" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             <% end %>
           </div>
