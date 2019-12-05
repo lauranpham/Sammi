@@ -33,35 +33,22 @@
           <img src='<%= asset_path(subject.photo) %>'/>
           <div class="card-subjects-infos">
             <h2><%= subject.name %></h2>
-
-            <% if subject.class_members.length > 0 %>
-              <div class='d-flex justify-content-between'>
-                  <p><%= subject.class_members.length %> students</p>
-                  <div id='emotion'><%= Emotion.find(@emo_average.round).rating %></div>
-              </div>
-              <br>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= @emo_index[Emotion.first.number] %>%" aria-valuenow="<%= @emo_index[Emotion.first.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.first.rating %>"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= @emo_index[Emotion.second.number] %>%" aria-valuenow="<%= @emo_index[Emotion.second.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.first.rating %>"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= @emo_index[Emotion.third.number] %>%" aria-valuenow="<%= @emo_index[Emotion.third.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.first.rating %>"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= @emo_index[Emotion.fourth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fourth.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.first.rating %>"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= @emo_index[Emotion.fifth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fifth.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.first.rating %>"></div>
-              </div>
-            <% else %>
-            <% final_prop = @random_proportions.to_a.sample %>
-              <div class='d-flex justify-content-between'>
-                <p><%= rand(20..27) %> students</p>
-                <div id='emotion'><%= Emotion.find(final_prop[0]).rating %></div>
-              </div>
-              <br>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= final_prop[1].first %>%" aria-valuenow="<%= final_prop.first %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= final_prop[1].second %>%" aria-valuenow="<%= final_prop.second %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= final_prop[1].third %>%" aria-valuenow="<%= final_prop[1].third %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= final_prop[1].fourth %>%" aria-valuenow="<%= final_prop[1].fourth %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= final_prop[1].fifth %>%" aria-valuenow="<%= final_prop[1].fifth %>" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            <% end %>
+            <div class='d-flex justify-content-between'>
+                <p><%= subject.class_members.length %> students</p>
+                <% length = subject.class_members.count %>
+                <% hsh = subject.class_members.map { |stu| stu.daily_emotions.first.emotion.number }.group_by{|r| r}.map { |key, value| { key => value.length } }.map { |i| i.map { |key, value| { key => (value / length.to_f) * 100 } } }.map { |i| i.first }.reduce Hash.new, :merge %>
+                <% final = hsh.map {|k, v| k * v }.sum / 100 %>
+                <div id='emotion'><%= Emotion.find(final.round).rating %></div>
+                <!-- <div id='emotion'><%= Emotion.find(@emo_average.round).rating %></div> -->
+            </div>
+            <br>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= @emo_index[Emotion.first.number] %>%" aria-valuenow="<%= @emo_index[Emotion.first.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.first.rating %>"></div>
+              <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= @emo_index[Emotion.second.number] %>%" aria-valuenow="<%= @emo_index[Emotion.second.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.first.rating %>"></div>
+              <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= @emo_index[Emotion.third.number] %>%" aria-valuenow="<%= @emo_index[Emotion.third.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.first.rating %>"></div>
+              <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= @emo_index[Emotion.fourth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fourth.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.first.rating %>"></div>
+              <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= @emo_index[Emotion.fifth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fifth.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.first.rating %>"></div>
+            </div>
           </div>
         </div>
       <% end %>
