@@ -1,13 +1,13 @@
 .banner {
   width: 100%;
-  height: 450px;
+  height: 360px;
   // background-image: linear-gradient(rgba(1,1,1,0.3)), url("https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=954&q=80");
   // linear-gradient(rgba(1,1,1,0.3), rgba(0,0,0,0.1))
   background-color: #6D6BB4;
   // background-color: #8A88C3;
   color: white;
   letter-spacing: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .banner .container {
@@ -21,7 +21,7 @@
 }
 
 .btn-landing {
-  background-color: #F7B569;
+  background-color: #83B692;
   border-radius: 5px;
   width: 150px;
   height: 50px;
@@ -54,7 +54,7 @@
 }
 
 #banner-image {
-  width: 500px;
+  width: 400px;
   position: relative;
   left: -40%;
 }
