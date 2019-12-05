@@ -107,7 +107,7 @@ Appointment.create!(student: students_array[4], teacher: teacher_user, date: Dat
 # add all students to Year 9 Science subject
 puts 'Creating Class Memberships...'
 # main subject class
-students_array.sample(9).each do |student|
+students_array.sample(13).each do |student|
   ClassMembership.create!(user: student, subject: main_subject)
 end
 
