@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
   def index
     @subjects = policy_scope(Subject)
     @subject = Subject.new
-    emotions_map = Subject.first.class_members.map { |stu| stu.daily_emotions.last.emotion.number }
+    emotions_map = Subject.first.class_members.map { |stu| stu.daily_emotions.first.emotion.number }
     grouped_emotions = emotions_map.group_by{|r| r}
     length = emotions_map.length
     count_emos = grouped_emotions.map { |key, value| { key => value.length } }
@@ -19,7 +19,7 @@ class SubjectsController < ApplicationController
 
   def show
     @subject = Subject.find(params[:id])
-    emotion_map = @subject.class_members.map {|student| student.daily_emotions.last.emotion.number }
+    emotion_map = @subject.class_members.map {|student| student.daily_emotions.first.emotion.number }
     grouped_emotions = emotion_map.group_by{|r| r}
     length = emotion_map.length
     count_emos = grouped_emotions.map { |key, value| { key => value.length } }

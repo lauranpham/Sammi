@@ -41,11 +41,11 @@
               </div>
               <br>
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= @emo_index[Emotion.first.number] %>%" aria-valuenow="<%= @emo_index[Emotion.first.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= @emo_index[Emotion.second.number] %>%" aria-valuenow="<%= @emo_index[Emotion.second.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= @emo_index[Emotion.third.number] %>%" aria-valuenow="<%= @emo_index[Emotion.third.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= @emo_index[Emotion.fourth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fourth.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= @emo_index[Emotion.fifth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fifth.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= @emo_index[Emotion.first.number] %>%" aria-valuenow="<%= @emo_index[Emotion.first.number] %>" aria-valuemin="0" aria-valuemax="100"><p id='emotion-pro'><%= Emotion.first.rating %></p></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= @emo_index[Emotion.second.number] %>%" aria-valuenow="<%= @emo_index[Emotion.second.number] %>" aria-valuemin="0" aria-valuemax="100"><p id='emotion-pro'><%= Emotion.second.rating %></p></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= @emo_index[Emotion.third.number] %>%" aria-valuenow="<%= @emo_index[Emotion.third.number] %>" aria-valuemin="0" aria-valuemax="100"><p id='emotion-pro'><%= Emotion.third.rating %></p></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= @emo_index[Emotion.fourth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fourth.number] %>" aria-valuemin="0" aria-valuemax="100"><p id='emotion-pro'><%= Emotion.fourth.rating %></p></div>
+                <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= @emo_index[Emotion.fifth.number] %>%" aria-valuenow="<%= @emo_index[Emotion.fifth.number] %>" aria-valuemin="0" aria-valuemax="100"><p id='emotion-pro'><%= Emotion.fifth.rating %></p></div>
               </div>
             <% else %>
             <% final_prop = @random_proportions.to_a.sample %>
