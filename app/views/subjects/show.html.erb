@@ -46,14 +46,10 @@
                 <div class='col-4 pl-0'>
                   <div class="card-product d-flex">
                     <p id="emotion"><%= member.daily_emotions.first.emotion.rating %></p>
-                    <% if member.daily_emotions.count > 3 %>
-                      <% if member.daily_emotions.first.emotion.number > member.daily_emotions.second.emotion.number %>
-                        <i class="fas fa-arrow-up"></i>
-                        <% elsif member.daily_emotions.first.emotion.number < member.daily_emotions.second.emotion.number %>
-                        <i class="fas fa-arrow-down"></i>
-                      <% end %>
-                    <% else %>
-                      <i class="<%= ["","fas fa-arrow-up","fas fa-arrow-down"].sample %>" ></i>
+                    <% if member.daily_emotions.first.emotion.number > member.daily_emotions.second.emotion.number %>
+                      <i class="fas fa-arrow-up"></i>
+                      <% elsif member.daily_emotions.first.emotion.number < member.daily_emotions.second.emotion.number %>
+                      <i class="fas fa-arrow-down"></i>
                     <% end %>
                   </div>
                 </div>
