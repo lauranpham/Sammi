@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+#new_appointment:active {
+  padding-bottom: 13px !important;
+}
+
 .appointment-buttons {
   display: flex;
   justify-content: space-between;
@@ -32,4 +36,5 @@
   margin: 0 0 0 auto;
   width: 25%;
   border-radius: 10px;
+  padding-bottom: 15px !important;
 }

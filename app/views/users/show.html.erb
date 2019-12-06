@@ -14,7 +14,7 @@
         Create an appointment
       </button>
       <div class="collapse" id="collapseExample" style="margin-bottom: 15px;">
-        <div class="card card-body ml-0" style="border-radius: 15px;">
+        <div class="card card-body ml-0" style="border-radius: 15px; padding-bottom: 13px;">
           <%= render 'shared/appointments_form' %>
         </div>
       </div>
@@ -111,7 +111,7 @@
                 <span style="position: absolute; left: 28px; top: 127px;"><%= Emotion.all.third.rating %></span>
                 <span style="position: absolute; left: 28px; top: 83px;"><%= Emotion.all.fourth.rating %></span>
                 <span style="position: absolute; left: 28px; top: 40px;"><%= Emotion.all.fifth.rating %></span>
-                <%= line_chart @dailynumber, label: "Emotion", xtitle: "Date", ytitle: "Emotions", points: true, xmin: "2019-12-02", xmax: "2019-12-06", min: 0, max: 5, id: 'chartkick', curve: true, discrete: false %>
+                <%= line_chart @dailynumber, label: "Emotion", xtitle: "Date", ytitle: "Emotions", points: true, xmin: "2019-12-02", xmax: "2019-12-06", min: 0, max: 5, id: 'chartkick', curve: true, discrete: false, colors: ['#F7D167'] %>
               </div>
             </div>
           </div>
