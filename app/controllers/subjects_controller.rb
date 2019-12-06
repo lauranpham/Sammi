@@ -21,6 +21,22 @@ class SubjectsController < ApplicationController
       [subject[0], subject[1].map{ |k, v| [k, v.to_f / subject[1].values.inject(:+)] }.to_h]
     end
 
+    @hsh = {}
+    @emo_array = @emotions_hash.map{|subject|subject[1]}.map{|h|h.map{|k, v|k*v}.sum}
+
+    counter = 0
+    @subjects.each do |subject|
+      @hsh[subject.id] = @emo_array[counter]
+      counter +=1
+      # @emo_array.each do |emo|
+      #   @hsh[subject.id] = emo
+      # end
+
+    end
+
+    @avergae_hash = {}
+
+
     # grouped_emotions = emotions_map.group_by{|r| r}
     # length = emotions_map.length
     # count_emos = grouped_emotions.map { |key, value| { key => value.length } }
