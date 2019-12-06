@@ -20,7 +20,7 @@ class SubjectsController < ApplicationController
     @emotions_hash.map! do |subject|
       [subject[0], subject[1].map{ |k, v| [k, v.to_f / subject[1].values.inject(:+)] }.to_h]
     end
-
+    raise
     # grouped_emotions = emotions_map.group_by{|r| r}
     # length = emotions_map.length
     # count_emos = grouped_emotions.map { |key, value| { key => value.length } }
