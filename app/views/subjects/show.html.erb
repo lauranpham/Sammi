@@ -18,11 +18,11 @@
 <!-- This will be a bar showing the proportion for the entire class once we agree on a color scheme -->
 <div class='class-progress'>
   <div class="progress">
-    <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= @emo_prop[Emotion.first.number] %>%" aria-valuenow="<%= @emo_prop[Emotion.first.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-    <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= @emo_prop[Emotion.second.number] %>%" aria-valuenow="<%= @emo_prop[Emotion.second.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-    <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= @emo_prop[Emotion.third.number] %>%" aria-valuenow="<%= @emo_prop[Emotion.third.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-    <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= @emo_prop[Emotion.fourth.number] %>%" aria-valuenow="<%= @emo_prop[Emotion.fourth.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
-    <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= @emo_prop[Emotion.fifth.number] %>%" aria-valuenow="<%= @emo_prop[Emotion.fifth.number] %>" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.first.color %>;width: <%= @emo_prop[Emotion.first.number] %>%" aria-valuenow="<%= @emo_prop[Emotion.first.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.first.rating %>"></div>
+    <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.second.color %>; width: <%= @emo_prop[Emotion.second.number] %>%" aria-valuenow="<%= @emo_prop[Emotion.second.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.second.rating %>"></div>
+    <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.third.color %>; width: <%= @emo_prop[Emotion.third.number] %>%" aria-valuenow="<%= @emo_prop[Emotion.third.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.third.rating %>"></div>
+    <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fourth.color %>; width: <%= @emo_prop[Emotion.fourth.number] %>%" aria-valuenow="<%= @emo_prop[Emotion.fourth.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.fourth.rating %>"></div>
+    <div class="progress-bar" role="progressbar" style="background-color: <%= Emotion.fifth.color %>; width: <%= @emo_prop[Emotion.fifth.number] %>%" aria-valuenow="<%= @emo_prop[Emotion.fifth.number] %>" aria-valuemin="0" aria-valuemax="100" data-toggle='tooltip' data-placement="top" title="<%= Emotion.fifth.rating %>"></div>
   </div>
 </div>
 <div class="student-index">
