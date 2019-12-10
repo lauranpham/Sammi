@@ -62,6 +62,7 @@ puts 'Creating Daily Emotions...'
 student_emotion_array = []
 
 low_emotion_range = Emotion.all.slice(0,3)
+
 15.times do
   student_emotion_array << DailyEmotion.create!(emotion: low_emotion_range.sample, user: main_student)
 end

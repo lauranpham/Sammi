@@ -1,20 +1,12 @@
 <div class="banner">
   <div class="container">
-    <div class="row">
-      <div class="col-3">
-      </div>
-      <div class="col-6">
-        <h1 id="sammi-logo-large">Sammi</h1>
-        <p id="sammi-tagline">Supporting Teachers, Supporting Students</p>
-        <div class="btn-landing">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmfQBqNPpz1Ney9QPM-Lj3K5_741wHnyXC_tLFsUDqjvbZqQ/viewform?usp=sf_link", target="blank" >Learn More</a>
-        </div>
-      </div>
-      <div class="col-3">
-        <%= image_tag asset_path("emotion-reflection.svg"), id: "banner-image" %>
-      </div>
+    <h1 id="sammi-logo-large">Sammi</h1>
+    <p id="sammi-tagline">Supporting Teachers, Supporting Students</p>
+    <div class="btn-landing">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmfQBqNPpz1Ney9QPM-Lj3K5_741wHnyXC_tLFsUDqjvbZqQ/viewform?usp=sf_link", target="blank" >Learn More</a>
     </div>
   </div>
+  <%= image_tag asset_path("emotion-reflection.svg"), id: "banner-image", class: "d-none d-sm-block" %>
 </div>
 <!-- code a "How it works" section -->
 <div class= "section">
