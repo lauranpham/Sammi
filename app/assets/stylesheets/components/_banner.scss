@@ -8,6 +8,7 @@
   color: white;
   letter-spacing: 1.5;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .banner .container {
@@ -42,7 +43,7 @@
 
 #sammi-logo-large {
   color: #FF6874;
-  font-size: 120px;
+  font-size: 100px;
   margin-bottom: 0;
   text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -55,7 +56,15 @@
 
 #banner-image {
   width: 400px;
-  position: relative;
-  left: -40%;
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  #sammi-logo-large {
+    font-size: 80px;
+  }
 }
 
