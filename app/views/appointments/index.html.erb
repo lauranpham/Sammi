@@ -4,7 +4,7 @@
     <h1>Your Appointments</h1>
   </div>
   <div class="col-6">
-    <%= link_to 'Make an appointment', subjects_path, class: 'btn btn-ghost float-right'%>
+    <%= link_to 'Make an appointment', subjects_path, class: 'btn btn-ghost float-right d-none d-md-block'%>
   </div>
 </div>
 
@@ -30,7 +30,7 @@
     <div class="col-1">
       <p class="m-0"><%= appointment.date.strftime("%H:%M") %> </p>
     </div>
-    <div class="col-4 appointment-buttons">
+    <div class="col-4 appointment-buttons d-none d-md-block">
       <div class="row">
         <% if current_user.teacher %>
           <div class="col-6">
@@ -88,7 +88,7 @@
     <div class="col-1">
       <p class="m-0"><%= appointment.date.strftime("%H:%M") %> </p>
     </div>
-    <div class="col-4 appointment-buttons">
+    <div class="col-4 appointment-buttons d-none d-md-block">
       <div class="row">
         <div class="col-10"></div>
       </div>
