@@ -7,16 +7,13 @@
     "chart.js": "^2.9.3",
     "chartkick": "^3.2.0",
     "flatpickr": "^4.6.3",
-<<<<<<< HEAD
     "jquery": "^3.4.1",
     "kind-of": "^6.0.3",
     "minimist": "^1.2.5",
     "popper.js": "^1.16.0",
-    "serialize-javascript": "^3.0.0"
-=======
+    "serialize-javascript": "^3.0.0",
     "jquery": "^3.5.0",
     "popper.js": "^1.16.0"
->>>>>>> b08eb546b3235640b53c4510d149a5e489a4535c
   },
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"
