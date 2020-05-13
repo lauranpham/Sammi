@@ -13,7 +13,7 @@ gem "simple_calendar", "~> 2.0"
 gem "chartkick", '~> 3.3.0'
 gem 'groupdate'
 gem 'date', '~> 0.0.1'
-gem 'actionview', '~> 4.2', '>= 4.2.6'
+gem "actionview", ">= 5.2.4.2"
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
