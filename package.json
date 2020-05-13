@@ -8,9 +8,12 @@
     "chartkick": "^3.2.0",
     "flatpickr": "^4.6.3",
     "jquery": "^3.4.1",
-    "popper.js": "^1.16.0"
+    "kind-of": "^6.0.3",
+    "minimist": "^1.2.5",
+    "popper.js": "^1.16.0",
+    "serialize-javascript": "^3.0.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.11.0"
   }
 }
